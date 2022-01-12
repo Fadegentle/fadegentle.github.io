@@ -1,2 +1,1 @@
-# fadegentle.github.io
-Fadegentle's Blog
+# Fadegentle's Blog
