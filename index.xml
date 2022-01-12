@@ -1,91 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>My New Hugo Site</title>
-        <link>https://fadegentle.github.io/</link>
-        <description>Recent content on My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
-        <lastBuildDate>Thu, 13 Jan 2022 00:12:47 +0800</lastBuildDate><atom:link href="https://fadegentle.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>社保卡小课堂</title>
-        <link>https://fadegentle.github.io/post/blog/</link>
-        <pubDate>Thu, 13 Jan 2022 00:12:47 +0800</pubDate>
-        
-        <guid>https://fadegentle.github.io/post/blog/</guid>
-        <description>&lt;h1 id=&#34;社保卡&#34;&gt;社保卡&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;社保卡的功能：保障卡（失业、生育、工伤、医保、养老）、银行卡、租赁（如图书馆、自行车等）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;• &lt;code&gt;12333、税务APP、当地人社局&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;灵活就业人员（自由工作者、无业游民），有交社保过后，可以去人社局办就业困难认证，每年几千补助。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;职工社保，同上班族，保障强，但贵&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;15-20年永久；&lt;/p&gt;
-&lt;p&gt;医保报80%且有个人账户；&lt;/p&gt;
-&lt;p&gt;养老比居民多，公式不同，随社会均工资涨幅；&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;居民社保，同大学生，保障弱，便宜&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;交1年保1年；&lt;/p&gt;
-&lt;p&gt;医保报60%且无个人账户；&lt;/p&gt;
-&lt;p&gt;养老分九档，交多愈多，不随社会过多变动；&lt;/p&gt;
-&lt;p&gt;资金实在紧张可以先交居民社保，荷包硬气了再交职工社保&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;医保保险&#34;&gt;医保保险&lt;/h2&gt;
-&lt;p&gt;月交8%左右，交15-30年后可永久享受。个人所缴可如银行卡使用，买药等可用，约报66%；单位的放入社保局池子，国家统筹分配，住院可用（买药和门诊也行，但要过起付线），约报83%。（其他保险也都是这样，分个人和统筹）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;报销金额＝（治疗费用-起付线-封顶线-自费部分）*报销比例（0.7-0.9）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;起付线：低于这个线的部分不给报销。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;医院越高级，起付线越高，以合理分配医疗资源;&lt;/li&gt;
-&lt;li&gt;常人标准，三二一级医院分别为500、300、0；&lt;/li&gt;
-&lt;li&gt;学生、老人、儿童详情看百度百科词条。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;封顶线：一般是当地职工年工资的4-6倍。超出这个线的部分要自费，不给报销。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;根据国家相关药品、设施、诊疗目录的分类，进行判断，甲（全报）、乙（报七八成）、自费（微信搜“医保目录”）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;药品：如部分特效药&lt;/li&gt;
-&lt;li&gt;设施：如救护车&lt;/li&gt;
-&lt;li&gt;诊疗：如减肥、美容、牙齿&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps：医院流程有时候不需要交钱，是因为动用了你医保个人账户，还是你的钱&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;医保并非全国通用，异地就医要先备案（微信搜“国家异地就医备案”，小程序上没有就要去当地人社局）&lt;/p&gt;
-&lt;p&gt;推荐B站视频：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1PN411Z7qL?from=search&amp;amp;seid=14025397094883779505&amp;amp;spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;BV1PN411Z7qL&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;养老保险&#34;&gt;养老保险&lt;/h2&gt;
-&lt;p&gt;个人8%，公司13-16%&lt;/p&gt;
-&lt;p&gt;养老金可以直接搜索，“每月养老金计算公式”或者“养老金计算器”，总之交的年限越长越高。&lt;/p&gt;
-&lt;p&gt;此外只有，&lt;code&gt;广北闽苏浙沪鲁&lt;/code&gt;，养老为正，其余省份地区皆为赤字。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;原因：制度建立太晚（导致很多老人个人没交过社保，统筹资金不足），老人太多，故延迟退休。&lt;/li&gt;
-&lt;li&gt;中国应对方法：延迟退休（渐进式退休）、投入资金（人保、工行等转入10%股权；入股蚂蚁）、开放二胎三胎&lt;/li&gt;
-&lt;li&gt;应对老龄化三大法宝：延迟退休、医疗改革、鼓励生育&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;生育保险&#34;&gt;生育保险&lt;/h2&gt;
-&lt;p&gt;1、省钱。报销各类相关费用&lt;/p&gt;
-&lt;p&gt;2、领钱。生育津贴，上年职工月平均工资/30天×产假天数：如9000均工资，放100天产假，就是3w元。&lt;/p&gt;
-&lt;p&gt;女生无社保，可用老公社保省钱，但不能领钱。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;工伤保险&#34;&gt;工伤保险&lt;/h2&gt;
-&lt;p&gt;主要为公司负担，工伤可得，残疾或者死亡可能可得赔偿百万&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;失业保险&#34;&gt;失业保险&lt;/h2&gt;
-&lt;p&gt;也是主要为公司负担，失业金一般为当地最低工资的80%，社保一年以上可领，社保越长可领越久，失业期间帮交医保。&lt;/p&gt;
-&lt;p&gt;社保缴费年限1-5年，最长可领12月；5-10年，18个月；10年以上24个月。&lt;/p&gt;
-&lt;p&gt;就业后又失业，要重新计算缴费年限；另外之前领的月数也要计算。意思就是失业次数多会影响最长领取月数，但一辈子给的失业金总共也不会超过24个月。&lt;/p&gt;
-&lt;hr&gt;
-</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://example.org/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Jan 2022 00:12:47 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>社保卡小课堂</title>
+      <link>http://example.org/post/blog/</link>
+      <pubDate>Thu, 13 Jan 2022 00:12:47 +0800</pubDate>
+      
+      <guid>http://example.org/post/blog/</guid>
+      <description>社保卡 社保卡的功能：保障卡（失业、生育、工伤、医保、养老）、银行卡、租赁（如图书馆、自行车等）
+• 12333、税务APP、当地人社局
+灵活就业人员（自由工作者、无业游民），有交社保过后，可以去人社局办就业困难认证，每年几千补助。
+ 职工社保，同上班族，保障强，但贵
+ 15-20年永久；
+医保报80%且有个人账户；
+养老比居民多，公式不同，随社会均工资涨幅；
+ 居民社保，同大学生，保障弱，便宜
+ 交1年保1年；
+医保报60%且无个人账户；
+养老分九档，交多愈多，不随社会过多变动；
+资金实在紧张可以先交居民社保，荷包硬气了再交职工社保
+ 医保保险 月交8%左右，交15-30年后可永久享受。个人所缴可如银行卡使用，买药等可用，约报66%；单位的放入社保局池子，国家统筹分配，住院可用（买药和门诊也行，但要过起付线），约报83%。（其他保险也都是这样，分个人和统筹）
+ 报销金额＝（治疗费用-起付线-封顶线-自费部分）*报销比例（0.7-0.9）
+   起付线：低于这个线的部分不给报销。
+ 医院越高级，起付线越高，以合理分配医疗资源; 常人标准，三二一级医院分别为500、300、0； 学生、老人、儿童详情看百度百科词条。    封顶线：一般是当地职工年工资的4-6倍。超出这个线的部分要自费，不给报销。
+  根据国家相关药品、设施、诊疗目录的分类，进行判断，甲（全报）、乙（报七八成）、自费（微信搜“医保目录”）
+ 药品：如部分特效药 设施：如救护车 诊疗：如减肥、美容、牙齿   ps：医院流程有时候不需要交钱，是因为动用了你医保个人账户，还是你的钱
+ 医保并非全国通用，异地就医要先备案（微信搜“国家异地就医备案”，小程序上没有就要去当地人社局）
+推荐B站视频：BV1PN411Z7qL
+ 养老保险 个人8%，公司13-16%
+养老金可以直接搜索，“每月养老金计算公式”或者“养老金计算器”，总之交的年限越长越高。
+此外只有，广北闽苏浙沪鲁，养老为正，其余省份地区皆为赤字。
+ 原因：制度建立太晚（导致很多老人个人没交过社保，统筹资金不足），老人太多，故延迟退休。 中国应对方法：延迟退休（渐进式退休）、投入资金（人保、工行等转入10%股权；入股蚂蚁）、开放二胎三胎 应对老龄化三大法宝：延迟退休、医疗改革、鼓励生育   生育保险 1、省钱。报销各类相关费用
+2、领钱。生育津贴，上年职工月平均工资/30天×产假天数：如9000均工资，放100天产假，就是3w元。
+女生无社保，可用老公社保省钱，但不能领钱。
+ 工伤保险 主要为公司负担，工伤可得，残疾或者死亡可能可得赔偿百万
+ 失业保险 也是主要为公司负担，失业金一般为当地最低工资的80%，社保一年以上可领，社保越长可领越久，失业期间帮交医保。
+社保缴费年限1-5年，最长可领12月；5-10年，18个月；10年以上24个月。</description>
+    </item>
+    
+  </channel>
 </rss>
