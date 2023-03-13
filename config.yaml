@@ -43,7 +43,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: /images/marry3.jpg
+            src: /img/marry3.jpg
 
     article:
         math: false
