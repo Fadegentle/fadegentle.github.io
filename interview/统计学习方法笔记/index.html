@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='统计学习方法笔记 这是本人对统计学习方法学习中摘录的一些知识点
+本机文件路径：E:\资料\计算机\软件\AI\深度之眼\李航《统计学习方法》带学训练营
+极大似然估计（MLE） MLE，Maximum Likelihood Estimation 未知参数$\theta$是定值 目标：位置参数$\theta$使得数据集D发生的概率最大，$max\ P(D|\theta)$ 下溢出（Underflow） 数据过小，$lg$ 一下（取对数）
+梯度下降法（Gradient Descent） 过拟合（Over Fitting） Train 过度 —&amp;gt; Early Stop 模型太复杂 —&amp;gt; 正则化等，降低复杂度、NN层数减少、剪枝等 欠拟合（Under Fitting） 超平面（Hyperplane） 函数间距 集合间距 感知机（Perceptron） 思想：分错的点和直线距离求和最小
+维度d大 —&amp;gt; 对偶
+样本N大 —&amp;gt; 原始
+为了避免0处不可微，$sign(wx&#43;b)$脱去了$sign$
+正则化（Regularization） L1：特征值更稀疏，可为零
+L2：权值更均匀，接近零
+系数过小，约束无用
+系数过大，约束过度欠拟合
+对偶形式（Dual Form） K近邻（KNN） KNN，K Nearest Neighbors
+思想：物以类聚
+K指最近的K个样本
+K值过小，太敏感，噪声容易影响预测出错
+K值过大，不相似的也会囊括进去，使预测错误
+实际中先取个小的K值，交叉验证再调大
+K近邻没有显式的训练过程
+分类决策规则：多数表决
+范数（Norm） 欧氏距离$L_1$范数 曼哈顿/城市街区距离$L_2$范数 切比雪夫/棋盘距离一致范数$L_\infty$ $$ L_p(x_i, x_j) = (\sum\limits_{l=1}^n\left|x_i^{(l)}-x_j^{(l)}\right|^p)^\frac{1}{p} $$
+Kd树（Kd Tree） 步骤：①构造；②搜索'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='统计学习方法笔记 这是本人对统计学习方法学习中摘录的一些知识点
+本机文件路径：E:\资料\计算机\软件\AI\深度之眼\李航《统计学习方法》带学训练营
+极大似然估计（MLE） MLE，Maximum Likelihood Estimation 未知参数$\theta$是定值 目标：位置参数$\theta$使得数据集D发生的概率最大，$max\ P(D|\theta)$ 下溢出（Underflow） 数据过小，$lg$ 一下（取对数）
+梯度下降法（Gradient Descent） 过拟合（Over Fitting） Train 过度 —&amp;gt; Early Stop 模型太复杂 —&amp;gt; 正则化等，降低复杂度、NN层数减少、剪枝等 欠拟合（Under Fitting） 超平面（Hyperplane） 函数间距 集合间距 感知机（Perceptron） 思想：分错的点和直线距离求和最小
+维度d大 —&amp;gt; 对偶
+样本N大 —&amp;gt; 原始
+为了避免0处不可微，$sign(wx&#43;b)$脱去了$sign$
+正则化（Regularization） L1：特征值更稀疏，可为零
+L2：权值更均匀，接近零
+系数过小，约束无用
+系数过大，约束过度欠拟合
+对偶形式（Dual Form） K近邻（KNN） KNN，K Nearest Neighbors
+思想：物以类聚
+K指最近的K个样本
+K值过小，太敏感，噪声容易影响预测出错
+K值过大，不相似的也会囊括进去，使预测错误
+实际中先取个小的K值，交叉验证再调大
+K近邻没有显式的训练过程
+分类决策规则：多数表决
+范数（Norm） 欧氏距离$L_1$范数 曼哈顿/城市街区距离$L_2$范数 切比雪夫/棋盘距离一致范数$L_\infty$ $$ L_p(x_i, x_j) = (\sum\limits_{l=1}^n\left|x_i^{(l)}-x_j^{(l)}\right|^p)^\frac{1}{p} $$
+Kd树（Kd Tree） 步骤：①构造；②搜索'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="统计学习方法笔记 这是本人对统计学习方法学习中摘录的一些知识点
+本机文件路径：E:\资料\计算机\软件\AI\深度之眼\李航《统计学习方法》带学训练营
+极大似然估计（MLE） MLE，Maximum Likelihood Estimation 未知参数$\theta$是定值 目标：位置参数$\theta$使得数据集D发生的概率最大，$max\ P(D|\theta)$ 下溢出（Underflow） 数据过小，$lg$ 一下（取对数）
+梯度下降法（Gradient Descent） 过拟合（Over Fitting） Train 过度 —&amp;gt; Early Stop 模型太复杂 —&amp;gt; 正则化等，降低复杂度、NN层数减少、剪枝等 欠拟合（Under Fitting） 超平面（Hyperplane） 函数间距 集合间距 感知机（Perceptron） 思想：分错的点和直线距离求和最小
+维度d大 —&amp;gt; 对偶
+样本N大 —&amp;gt; 原始
+为了避免0处不可微，$sign(wx&#43;b)$脱去了$sign$
+正则化（Regularization） L1：特征值更稀疏，可为零
+L2：权值更均匀，接近零
+系数过小，约束无用
+系数过大，约束过度欠拟合
+对偶形式（Dual Form） K近邻（KNN） KNN，K Nearest Neighbors
+思想：物以类聚
+K指最近的K个样本
+K值过小，太敏感，噪声容易影响预测出错
+K值过大，不相似的也会囊括进去，使预测错误
+实际中先取个小的K值，交叉验证再调大
+K近邻没有显式的训练过程
+分类决策规则：多数表决
+范数（Norm） 欧氏距离$L_1$范数 曼哈顿/城市街区距离$L_2$范数 切比雪夫/棋盘距离一致范数$L_\infty$ $$ L_p(x_i, x_j) = (\sum\limits_{l=1}^n\left|x_i^{(l)}-x_j^{(l)}\right|^p)^\frac{1}{p} $$
+Kd树（Kd Tree） 步骤：①构造；②搜索">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="统计学习方法笔记">统计学习方法笔记</h1>
+<p>这是本人对统计学习方法学习中摘录的一些知识点</p>
+<p>本机文件路径：E:\资料\计算机\软件\AI\深度之眼\李航《统计学习方法》带学训练营</p>
+<h1 id="极大似然估计mle">极大似然估计（MLE）</h1>
+<ul>
+<li><strong>MLE</strong>，<strong>M</strong>aximum <strong>L</strong>ikelihood <strong>E</strong>stimation</li>
+<li>未知参数$\theta$是定值</li>
+<li>目标：位置参数$\theta$使得数据集D发生的概率最大，$max\ P(D|\theta)$</li>
+</ul>
+<h2 id="下溢出underflow">下溢出（Underflow）</h2>
+<p>数据过小，$lg$ 一下（取对数）</p>
+<h2 id="梯度下降法gradient-descent">梯度下降法（<strong>G</strong>radient <strong>D</strong>escent）</h2>
+<h2 id="过拟合over-fitting">过拟合（<strong>Over Fitting</strong>）</h2>
+<ul>
+<li>Train 过度 —&gt; Early Stop</li>
+<li>模型太复杂 —&gt; 正则化等，降低复杂度、NN层数减少、剪枝等</li>
+</ul>
+<h2 id="欠拟合under-fitting">欠拟合（<strong>Under Fitting</strong>）</h2>
+<h2 id="超平面hyperplane">超平面（Hyperplane）</h2>
+<ul>
+<li>函数间距</li>
+<li>集合间距</li>
+</ul>
+<h1 id="感知机perceptron">感知机（<strong>Perceptron</strong>）</h1>
+<ul>
+<li>
+<p><strong>思想：分错的点和直线距离求和最小</strong></p>
+</li>
+<li>
+<p>维度d大 —&gt; 对偶</p>
+</li>
+<li>
+<p>样本N大 —&gt; 原始</p>
+</li>
+<li>
+<p>为了避免0处不可微，$sign(wx+b)$脱去了$sign$</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<h2 id="正则化regularization">正则化（<strong>Regularization</strong>）</h2>
+<ul>
+<li>
+<p>L1：特征值更稀疏，可为零</p>
+</li>
+<li>
+<p>L2：权值更均匀，接近零</p>
+</li>
+<li>
+<p>系数过小，约束无用</p>
+</li>
+<li>
+<p>系数过大，约束过度欠拟合</p>
+</li>
+</ul>
+<h2 id="对偶形式dual-form">对偶形式（<strong>Dual Form</strong>）</h2>
+<h1 id="k近邻knn">K近邻（KNN）</h1>
+<ul>
+<li>
+<p><strong>KNN，K N</strong>earest <strong>N</strong>eighbors</p>
+</li>
+<li>
+<p><strong>思想：物以类聚</strong></p>
+</li>
+<li>
+<p>K指最近的K个样本</p>
+</li>
+<li>
+<p>K值过小，太敏感，噪声容易影响预测出错</p>
+</li>
+<li>
+<p>K值过大，不相似的也会囊括进去，使预测错误</p>
+</li>
+<li>
+<p>实际中先取个小的K值，交叉验证再调大</p>
+</li>
+<li>
+<p>K近邻没有显式的训练过程</p>
+</li>
+<li>
+<p>分类决策规则：多数表决</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<h2 id="范数norm">范数（<strong>Norm</strong>）</h2>
+<ul>
+<li>欧氏距离$L_1$范数</li>
+<li>曼哈顿/城市街区距离$L_2$范数</li>
+<li>切比雪夫/棋盘距离一致范数$L_\infty$</li>
+</ul>
+<p>$$
+L_p(x_i, x_j) = (\sum\limits_{l=1}^n\left|x_i^{(l)}-x_j^{(l)}\right|^p)^\frac{1}{p}
+$$</p>
+<h2 id="kd树kd-tree">Kd树（<strong>Kd Tree</strong>）</h2>
+<ul>
+<li>
+<p>步骤：①构造；②搜索</p>
+</li>
+<li>
+<p>K指K维空间</p>
+</li>
+<li>
+<p>特征空间（Feature Space）划分：根据$x^{(l)}\text{，}l=(j\text{ mod } k)+1$ 中位点轴垂线，划分空间</p>
+</li>
+<li>
+<p>减少计算距离的次数</p>
+</li>
+<li>
+<p>但维数接近训练实例数时，效率速降，逼近线性搜索（20维以内，N&raquo;2d；高维用Kd树）</p>
+</li>
+<li>
+<p>Kd树采用了特殊的结构存储训练数据</p>
+</li>
+<li>
+<p>最近邻搜索</p>
+</li>
+</ul>
+<h2 id="指示函数indicator-function">指示函数（Indicator Function）</h2>
+<p>指示函数  $I_A(x)=\begin{cases}1&amp;if\ x\in A\0&amp;if\ x\not\in A\end{cases}$（实际中基本不用，因为只知道错了，不知道错哪了）</p>
+<h1 id="朴素贝叶斯naive-bayes">朴素贝叶斯（<strong>Naive Bayes</strong>）</h1>
+<ul>
+<li>
+<p>$P(A|B)=\frac{P(AB)}{P(B)}=\frac{P(B|A)P(A)}{P(B)}$</p>
+</li>
+<li>
+<p>MNIST（虽然手写数字像素相关，但<strong>强制假设独立</strong>——即所谓“朴素”，否则算不出来）</p>
+</li>
+</ul>
+<h2 id="贝叶斯估计bayesian-estimation">贝叶斯估计（Bayesian Estimation）</h2>
+<ul>
+<li>分子加$\lambda$</li>
+<li>分母加$S_j\lambda，其中S_j为x_i可取特征数$</li>
+<li>拉普拉斯平滑（Laplace Smoothing），防止特征过少，分母为零</li>
+<li>虽加入值，但不改变主要概率分布</li>
+<li>位置参数$\theta$本身服从一定概率分布</li>
+<li>目标：数据集D发生的情况下，哪一个$\theta$发生的概率最大，$max\ P(\theta|D)$</li>
+</ul>
+<h2 id="概率probability">概率（Probability）</h2>
+<ul>
+<li>
+<p>先验概率（Prior Probability）：以往经验得到的概率，因—&gt;果</p>
+</li>
+<li>
+<p>后验概率（Posterior Probability）：得到的结果去计算，最有可能的概率，果—&gt;因</p>
+</li>
+<li>
+<p>条件概率（Conditional Probability）：在某条件下事件发生的概率。</p>
+</li>
+<li>
+<p>后验概率在某些情况下是条件概率的一种</p>
+</li>
+<li>
+<p>后验概率最大化含义：期望风险最小化</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<h1 id="决策树decision-tree">决策树（Decision Tree）</h1>
+<ul>
+<li>
+<p><strong>DT，Decision Tree</strong></p>
+</li>
+<li>
+<p>思想：以树为结构基础，对特征判断进入分支，直到叶节点</p>
+</li>
+<li>
+<p>左右子树较平衡，则认为决策树构建较好</p>
+</li>
+<li>
+<p>ID3 算法（<strong>I</strong>terative <strong>D</strong>ichotomiser 3，信息增益算法）</p>
+</li>
+<li>
+<p>ID4.5 算法（<strong>I</strong>terative <strong>D</strong>ichotomiser 4.5，信息增益比算法）</p>
+</li>
+</ul>
+<h2 id="剪枝tree-pruning">剪枝（Tree Pruning）</h2>
+<ul>
+<li>
+<p>降低模型复杂度，有预剪枝、后剪枝之分</p>
+</li>
+<li>
+<p>Sklearn.tree.DecisionTreeClassifier 采用的是 CART 算法，预剪枝、后剪枝</p>
+</li>
+<li>
+<p>CART（Classification and Regression Trees，分类与回归树）</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<h2 id="信息熵information-entropy">信息熵（<strong>Information Entropy</strong>）</h2>
+<ul>
+<li>
+<p>即信息的不确定性，熵为零时不确定性坍塌为零</p>
+</li>
+<li>
+<p>$H(X)=-\sum\limits_{i=1}^{n}p_i\log_2 p_i，其中\ 0\leqslant H(P)\leqslant \log n$</p>
+</li>
+<li>
+<p>均匀分布时，熵最大</p>
+</li>
+<li>
+<p>关联交叉熵、KL散度</p>
+</li>
+</ul>
+<h2 id="信息增益information-gain">信息增益（<strong>Information Gain</strong>）</h2>
+<ul>
+<li>
+<p>表示得知特征 X 的信息而使得类 Y 的信息的不确定性减少的程度
+$$
+g(D,A)=H(D)-H(D|A)
+$$</p>
+</li>
+<li>
+<p>信息增益会导致节点倾向于划分特征取值数目较多的，因为会打散，即子树过多（例如，身份证、房子面积具体值），由此引入信息增益比（<strong>Information Gain Ratio</strong>）
+$$
+g_R(D,A)=\frac{g(D,A)}{H(D)}
+$$</p>
+</li>
+<li>
+<p>为什么不用信息增益，网络还有言：==大数问题导致的概率是否准确问题==</p>
+</li>
+</ul>
+<h1 id="逻辑斯谛回归lr">逻辑斯谛回归（LR）</h1>
+<ul>
+<li>
+<p><strong>LR，Logistic Regression</strong></p>
+</li>
+<li>
+<p>速度快、性能不错</p>
+</li>
+<li>
+<p>逻辑斯谛回归定义 $P(Y=1|x)=\frac{\exp(w·x)}{1+\exp(w·x)}\ ; \
+P(Y=0|x)=\frac{1}{1+\exp(w·x)}$。图像：</p>
+<p>​                                         <figure 
+	>
+	<a href="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210306201739787.png" >
+		<img src="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210306201739787.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210306201739787">
+	</a>
+	
+	<figcaption>image-20210306201739787</figcaption>
+	
+</figure></p>
+</li>
+</ul>
+<h2 id="最大熵">最大熵</h2>
+<ul>
+<li></li>
+<li>
+<p>定义可以看出，连续可微，且具有概念意义</p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#下溢出underflow">下溢出（Underflow）</a></li>
+    <li><a href="#梯度下降法gradient-descent">梯度下降法（<strong>G</strong>radient <strong>D</strong>escent）</a></li>
+    <li><a href="#过拟合over-fitting">过拟合（<strong>Over Fitting</strong>）</a></li>
+    <li><a href="#欠拟合under-fitting">欠拟合（<strong>Under Fitting</strong>）</a></li>
+    <li><a href="#超平面hyperplane">超平面（Hyperplane）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#正则化regularization">正则化（<strong>Regularization</strong>）</a></li>
+    <li><a href="#对偶形式dual-form">对偶形式（<strong>Dual Form</strong>）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#范数norm">范数（<strong>Norm</strong>）</a></li>
+    <li><a href="#kd树kd-tree">Kd树（<strong>Kd Tree</strong>）</a></li>
+    <li><a href="#指示函数indicator-function">指示函数（Indicator Function）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#贝叶斯估计bayesian-estimation">贝叶斯估计（Bayesian Estimation）</a></li>
+    <li><a href="#概率probability">概率（Probability）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#剪枝tree-pruning">剪枝（Tree Pruning）</a></li>
+    <li><a href="#信息熵information-entropy">信息熵（<strong>Information Entropy</strong>）</a></li>
+    <li><a href="#信息增益information-gain">信息增益（<strong>Information Gain</strong>）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#最大熵">最大熵</a></li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

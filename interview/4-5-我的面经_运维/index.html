@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我的面经 · 运维 本人面经之 运维 分栏，后续补充。
+其实就是除了语言和理论的其他技术部分。
+Linux 操作 切换键主要是Ctrl，少量的Meta（Alt）。 基本移动： Move back one character. Ctrl &#43; b Move forward one character. Ctrl &#43; f Delete current character. Ctrl &#43; d Delete previous character. Backspace Undo. Ctrl &#43; - 快速移动： Move to the start of line. Ctrl &#43; a Move to the end of line. Ctrl &#43; e Move forward a word. Meta &#43; f (a word contains alphabets and digits, no symbols) Move backward a word.'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/4-5-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E8%BF%90%E7%BB%B4/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='我的面经 · 运维 本人面经之 运维 分栏，后续补充。
+其实就是除了语言和理论的其他技术部分。
+Linux 操作 切换键主要是Ctrl，少量的Meta（Alt）。 基本移动： Move back one character. Ctrl &#43; b Move forward one character. Ctrl &#43; f Delete current character. Ctrl &#43; d Delete previous character. Backspace Undo. Ctrl &#43; - 快速移动： Move to the start of line. Ctrl &#43; a Move to the end of line. Ctrl &#43; e Move forward a word. Meta &#43; f (a word contains alphabets and digits, no symbols) Move backward a word.'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/4-5-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E8%BF%90%E7%BB%B4/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="我的面经 · 运维 本人面经之 运维 分栏，后续补充。
+其实就是除了语言和理论的其他技术部分。
+Linux 操作 切换键主要是Ctrl，少量的Meta（Alt）。 基本移动： Move back one character. Ctrl &#43; b Move forward one character. Ctrl &#43; f Delete current character. Ctrl &#43; d Delete previous character. Backspace Undo. Ctrl &#43; - 快速移动： Move to the start of line. Ctrl &#43; a Move to the end of line. Ctrl &#43; e Move forward a word. Meta &#43; f (a word contains alphabets and digits, no symbols) Move backward a word.">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/4-5-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E8%BF%90%E7%BB%B4/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="我的面经--运维">我的面经 · 运维</h1>
+<p>本人面经之 <strong>运维</strong> 分栏，后续补充。</p>
+<p>其实就是除了语言和理论的其他技术部分。</p>
+<h1 id="linux">Linux</h1>
+<h3 id="操作">操作</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>切换键主要是Ctrl，少量的Meta（Alt）。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>基本移动：
+</span></span><span style="display:flex;"><span>Move back one character. Ctrl + b 
+</span></span><span style="display:flex;"><span>Move forward one character. Ctrl + f 
+</span></span><span style="display:flex;"><span>Delete current character. Ctrl + d 
+</span></span><span style="display:flex;"><span>Delete previous character. Backspace 
+</span></span><span style="display:flex;"><span>Undo. Ctrl + -
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>快速移动： 
+</span></span><span style="display:flex;"><span>Move to the start of line. Ctrl + a 
+</span></span><span style="display:flex;"><span>Move to the end of line. Ctrl + e 
+</span></span><span style="display:flex;"><span>Move forward a word. Meta + f <span style="color:#f92672">(</span>a word contains alphabets and digits, no symbols<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span>Move backward a word. Meta + b 
+</span></span><span style="display:flex;"><span>Clear the screen. Ctrl + l
+</span></span></code></pre></div><h2 id="vim">Vim</h2>
+<p>粘贴：Ctrl+insert</p>
+<p>进文件：vi</p>
+<p>编辑：i</p>
+<p>保存：esc + ：wq</p>
+<p>不保存：esc + ：q！</p>
+<h1 id="windows">Windows</h1>
+<ul>
+<li>gpedit.msc 打开组策略，可禁用无法删除的软件</li>
+</ul>
+<h1 id="消息队列">消息队列</h1>
+<ul>
+<li>
+<p>消息队列 三大功能：解耦、异步、削峰</p>
+</li>
+<li>
+<p>常用软件：Kafka、ActiveMQ、RabbitMQ、RocketMQ <figure 
+	>
+	<a href="https://uploader.shimo.im/f/vMFEY21qXF6GLs4v.png!thumbnail" >
+		<img src="https://uploader.shimo.im/f/vMFEY21qXF6GLs4v.png!thumbnail"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+</li>
+<li>
+<p>新手看MQ：https://www.jianshu.com/p/36a7775b04ec</p>
+</li>
+<li>
+<p>什么是MQ：https://www.zhihu.com/question/54152397?sort=created</p>
+</li>
+<li>
+<p>和管道的区别：https://blog.csdn.net/u014800094/article/details/53993275</p>
+</li>
+<li>
+<p>为什么不用线程进程直接实现异步之类，<strong>因为要经常改动代码</strong></p>
+</li>
+</ul>
+<h2 id="缺点"><strong>缺点</strong></h2>
+<h3 id="系统复杂性">系统复杂性</h3>
+<p>本来蛮简单的一个系统，我代码随便写都没事，现在你凭空接入一个中间件在那，我是不是要考虑去维护他，而且使用的过程中是不是要考虑各种问题，比如消息重复消费、消息丢失、消息的顺序消费等等，反正用了之后就是贼烦。</p>
+<h3 id="数据一致性"><strong>数据一致性</strong></h3>
+<p>这个其实是分布式服务本身就存在的一个问题，<strong>不仅仅是消息队列的问题</strong>，但是放在这里说是因为用了消息队列这个问题会暴露得比较严重一点。就像我开头说的，你下单的服务自己保证自己的逻辑成功处理了，你成功发了消息，但是优惠券系统，积分系统等等这么多系统，<strong>他们成功还是失败你就不管了？</strong> 所有的服务都成功才能算这一次下单是成功的，那怎么才能保证数据一致性呢？</p>
+<p>分布式事务：把下单，优惠券，积分。。。都放在一个事务里面一样，要成功一起成功，要失败一起失败。</p>
+<h3 id="可用性">可用性</h3>
+<p>你搞个系统本身没啥问题，你现在突然接入一个中间件在那放着，万一挂了怎么办？我下个单MQ挂了，优惠券不扣了，积分不减了，这不是杀一个程序员能搞定的吧，感觉得杀一片。</p>
+<p>作者：敖丙</p>
+<p>链接：https://www.zhihu.com/question/54152397/answer/923992679</p>
+<p>来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>分布式事务https://zhuanlan.zhihu.com/p/183753774</p>
+<h1 id="git">Git</h1>
+<ul>
+<li>
+<p>JS 学 Git：https://learngitbranching.js.org/?locale=zh_CN</p>
+</li>
+<li>
+<p>小甲鱼Git：https://www.bilibili.com/video/BV1Vs411876L?p=1</p>
+</li>
+</ul>
+<p><figure 
+	>
+	<a href="https://uploader.shimo.im/f/xnmT4HOCPLAi2PIt.png!thumbnail" >
+		<img src="https://uploader.shimo.im/f/xnmT4HOCPLAi2PIt.png!thumbnail"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.git 所在文件夹是仓库
+</span></span><span style="display:flex;"><span>-am 之类是简写
+</span></span><span style="display:flex;"><span>--amend 之类是全写
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git config --global user.name<span style="color:#e6db74">&#39;用户名&#39;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email<span style="color:#e6db74">&#39;邮箱&#39;</span>
+</span></span><span style="display:flex;"><span>git init：初始化为仓库
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add &lt;file&gt;：加入暂存区，添加修改的多个文件（一个一个，或 git add .）
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;此次提交说明&#34;</span>：提交至仓库
+</span></span><span style="display:flex;"><span>git commit -am <span style="color:#e6db74">&#34;此次提交说明&#34;</span>：从工作区直接提交至仓库（am <span style="color:#f92672">=</span> add + commit）
+</span></span><span style="display:flex;"><span>git status：查看状态
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git reset HEAD：最近add的反悔，加 ~ 回退版本
+</span></span><span style="display:flex;"><span>git checkout -- &lt;file&gt;：用暂存区中之前的文件覆盖工作空间里的文件（旧的覆盖新的）
+</span></span><span style="display:flex;"><span>git log：查看历史提交记录
+</span></span><span style="display:flex;"><span>git reset --mixed HEAD~：回退版本，且将回退后的版本滚回暂存区域（涉及两棵树）
+</span></span><span style="display:flex;"><span>git reset --soft HEAD~：回退版本，但暂存区域不动（相当于撤销提交）（只涉及仓库）
+</span></span><span style="display:flex;"><span>git reset --hard HEAD~：回退版本，三个区域都回滚（涉及三棵树） 
+</span></span><span style="display:flex;"><span>git reset &lt;快照ID前几位&gt;：回退指定版本（也可以往前滚）
+</span></span><span style="display:flex;"><span>git reset &lt;ID&gt; &lt;file/route&gt;：回退某文件的指定版本（因只改部分文件，故不改变HEAD指针）
+</span></span><span style="display:flex;"><span>git reset --hard &lt;ID&gt;：可前滚，且同时作用到工作空间
+</span></span><span style="display:flex;"><span>git reflog：查看历史快照ID，用于回滚或前滚
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git diff：比较文件版本内容变化
+</span></span><span style="display:flex;"><span>diff --git a/&lt;file&gt; b/&lt;file&gt;
+</span></span><span style="display:flex;"><span>	index ID..ID 指定文件类型及权限
+</span></span><span style="display:flex;"><span>	--- 暂存区域的文件（旧文件）
+</span></span><span style="display:flex;"><span>	+++ 工作空间的文件（新文件）
+</span></span><span style="display:flex;"><span>	@@ -1 +1,2 @@ 旧文件、新文件，及其行数
+</span></span><span style="display:flex;"><span>	+（绿色）说明是新文件特有的
+</span></span><span style="display:flex;"><span>	-（红色）说明是旧文件特有的
+</span></span><span style="display:flex;"><span>	否则（白色）就是共有的
+</span></span><span style="display:flex;"><span>	“J”“K”：上下一行一行移动
+</span></span><span style="display:flex;"><span>	“F”“B”：上下一页一页移动
+</span></span><span style="display:flex;"><span>	“D”“U”：上下半页半页移动
+</span></span><span style="display:flex;"><span>	“g”“G”：第一行、最后一行（3g第三行，3G倒数第三行）
+</span></span><span style="display:flex;"><span>    “/”“？”：从上往下搜索、从下往上搜索
+</span></span><span style="display:flex;"><span>	“n”“N”：搜索匹配的下/上一个结果
+</span></span><span style="display:flex;"><span>	“h”：帮助文档
+</span></span><span style="display:flex;"><span>	“q”：退出
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>git diff ID1 ID2：选定比较两个版本
+</span></span><span style="display:flex;"><span>git diff ID：比较工作区和仓库的
+</span></span><span style="display:flex;"><span>git diff HEAD：比较工作区和最新提交的
+</span></span><span style="display:flex;"><span>git diff --cached ID：比较暂存区和仓库的
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git commit --amend：修改最后一次提交，再加个 “-m “中文提交说明”” 就可以直接写中文了
+</span></span><span style="display:flex;"><span>git rm &lt;file&gt;：删除的某个文件（只删除工作区和暂存区的）（两区文件不同加“-f”强删）
+</span></span><span style="display:flex;"><span>git reset --soft HEAD~：配合上一条，可以彻底删除文件（删除了仓库的）
+</span></span><span style="display:flex;"><span>git rm --cached &lt;file&gt;：只删除暂存区的文件
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git mv &lt;file.oldename&gt; &lt;file.newname&gt;：重命名文件
+</span></span></code></pre></div><p><figure 
+	>
+	<a href="https://uploader.shimo.im/f/NgDAzBKtJNbrks7d.png!thumbnail" >
+		<img src="https://uploader.shimo.im/f/NgDAzBKtJNbrks7d.png!thumbnail"
+			
+			
+			
+			loading="lazy"
+			alt="img">
+	</a>
+	
+	<figcaption>img</figcaption>
+	
+</figure></p>
+<h1 id="mysql">MySQL</h1>
+<h1 id="mongdb">MongDB</h1>
+<h1 id="redis">Redis</h1>
+<h1 id="docker">Docker</h1>
+<h1 id="kubernetes">Kubernetes</h1>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#操作">操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#vim">Vim</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#缺点"><strong>缺点</strong></a>
+      <ul>
+        <li><a href="#系统复杂性">系统复杂性</a></li>
+        <li><a href="#数据一致性"><strong>数据一致性</strong></a></li>
+        <li><a href="#可用性">可用性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我的面经 · Python ​	本人面经之 Python 分栏，后续补充。
+​	主要是 Python 相关技巧经验。
+基础 技巧 \r 本行开头（可用 print( , end=&amp;rsquo;\r&amp;rsquo;) 不断从头打印）\n 下一行开头
+格式化字符串 f&amp;rsquo;&amp;rsquo; 的用法 https://blog.csdn.net/yizhuanlu9607/article/details/89530982
+max(l, key=lamda x: abs(x))：可直接获取绝对值最大的 x
+exec(string) 运行字符串
+连接推荐 str.join(list)，更快
+字符串链接不用加什么 &#39;py&#39;&#39;thon&#39; =&amp;gt; &#39;python&#39;
+字典默认值 d.get(&#39;a&#39;, []) 如果有 &amp;lsquo;a&amp;rsquo; 则返回value，否则返回 []
+%%time打印整个单元格的壁时间，而%time只提供第一行的时间。使用%%time或%time打印2个值：①CPU时间；②壁厚时间
+海象运算符:=（3.8&#43;特性）https://blog.csdn.net/qq_40244755/article/details/102685199
+转换编码
+def re_encode(path): with open(path, &amp;#39;r&amp;#39;, encoding=&amp;#39;GB2312&amp;#39;, errors=&amp;#39;ignore&amp;#39;) as file: lines = file.readlines() with open(path, &amp;#39;w&amp;#39;, encoding=&amp;#39;utf-8&amp;#39;) as file: file.write(&amp;#39;&amp;#39;.join(lines)) sum 用于合并列表：https://blog.csdn.net/weixin_39564036/article/details/111286230
+不要忘了 while i in range(n) 的用法'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/3-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_python/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='我的面经 · Python ​	本人面经之 Python 分栏，后续补充。
+​	主要是 Python 相关技巧经验。
+基础 技巧 \r 本行开头（可用 print( , end=&amp;rsquo;\r&amp;rsquo;) 不断从头打印）\n 下一行开头
+格式化字符串 f&amp;rsquo;&amp;rsquo; 的用法 https://blog.csdn.net/yizhuanlu9607/article/details/89530982
+max(l, key=lamda x: abs(x))：可直接获取绝对值最大的 x
+exec(string) 运行字符串
+连接推荐 str.join(list)，更快
+字符串链接不用加什么 &#39;py&#39;&#39;thon&#39; =&amp;gt; &#39;python&#39;
+字典默认值 d.get(&#39;a&#39;, []) 如果有 &amp;lsquo;a&amp;rsquo; 则返回value，否则返回 []
+%%time打印整个单元格的壁时间，而%time只提供第一行的时间。使用%%time或%time打印2个值：①CPU时间；②壁厚时间
+海象运算符:=（3.8&#43;特性）https://blog.csdn.net/qq_40244755/article/details/102685199
+转换编码
+def re_encode(path): with open(path, &amp;#39;r&amp;#39;, encoding=&amp;#39;GB2312&amp;#39;, errors=&amp;#39;ignore&amp;#39;) as file: lines = file.readlines() with open(path, &amp;#39;w&amp;#39;, encoding=&amp;#39;utf-8&amp;#39;) as file: file.write(&amp;#39;&amp;#39;.join(lines)) sum 用于合并列表：https://blog.csdn.net/weixin_39564036/article/details/111286230
+不要忘了 while i in range(n) 的用法'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/3-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_python/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="我的面经 · Python ​	本人面经之 Python 分栏，后续补充。
+​	主要是 Python 相关技巧经验。
+基础 技巧 \r 本行开头（可用 print( , end=&amp;rsquo;\r&amp;rsquo;) 不断从头打印）\n 下一行开头
+格式化字符串 f&amp;rsquo;&amp;rsquo; 的用法 https://blog.csdn.net/yizhuanlu9607/article/details/89530982
+max(l, key=lamda x: abs(x))：可直接获取绝对值最大的 x
+exec(string) 运行字符串
+连接推荐 str.join(list)，更快
+字符串链接不用加什么 &#39;py&#39;&#39;thon&#39; =&amp;gt; &#39;python&#39;
+字典默认值 d.get(&#39;a&#39;, []) 如果有 &amp;lsquo;a&amp;rsquo; 则返回value，否则返回 []
+%%time打印整个单元格的壁时间，而%time只提供第一行的时间。使用%%time或%time打印2个值：①CPU时间；②壁厚时间
+海象运算符:=（3.8&#43;特性）https://blog.csdn.net/qq_40244755/article/details/102685199
+转换编码
+def re_encode(path): with open(path, &amp;#39;r&amp;#39;, encoding=&amp;#39;GB2312&amp;#39;, errors=&amp;#39;ignore&amp;#39;) as file: lines = file.readlines() with open(path, &amp;#39;w&amp;#39;, encoding=&amp;#39;utf-8&amp;#39;) as file: file.write(&amp;#39;&amp;#39;.join(lines)) sum 用于合并列表：https://blog.csdn.net/weixin_39564036/article/details/111286230
+不要忘了 while i in range(n) 的用法">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/3-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_python/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="我的面经--python">我的面经 · Python</h1>
+<p>​	本人面经之 <strong>Python</strong> 分栏，后续补充。</p>
+<p>​	主要是 Python 相关技巧经验。</p>
+<h1 id="基础">基础</h1>
+<h2 id="技巧">技巧</h2>
+<ul>
+<li>
+<p>\r 本行开头（可用 print( , end=&rsquo;\r&rsquo;) 不断从头打印）\n 下一行开头</p>
+</li>
+<li>
+<p>格式化字符串 f&rsquo;&rsquo; 的用法 <a class="link" href="https://blog.csdn.net/yizhuanlu9607/article/details/89530982"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/yizhuanlu9607/article/details/89530982</a></p>
+</li>
+<li>
+<p><code>max(l, key=lamda x: abs(x))</code>：可直接获取绝对值最大的 x</p>
+</li>
+<li>
+<p><code>exec(string)</code> 运行字符串</p>
+</li>
+<li>
+<p>连接推荐 <code>str.join(list)</code>，更快</p>
+</li>
+<li>
+<p>字符串链接不用加什么 <code>'py''thon' =&gt; 'python'</code></p>
+</li>
+<li>
+<p>字典默认值 <code>d.get('a', []) </code>如果有 &lsquo;a&rsquo; 则返回value，否则返回 []</p>
+</li>
+<li>
+<p><code>%%time</code>打印整个单元格的壁时间，而<code>%time</code>只提供第一行的时间。使用<code>%%time</code>或<code>%time</code>打印2个值：①CPU时间；②壁厚时间</p>
+</li>
+<li>
+<p>海象运算符<code>:=</code>（3.8+特性）https://blog.csdn.net/qq_40244755/article/details/102685199</p>
+</li>
+<li>
+<p>转换编码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">re_encode</span>(path):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(path, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GB2312&#39;</span>, errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ignore&#39;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>        lines <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>readlines()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(path, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf-8&#39;</span>) <span style="color:#66d9ef">as</span> file:
+</span></span><span style="display:flex;"><span>        file<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(lines))
+</span></span></code></pre></div></li>
+<li>
+<p><code>sum</code> 用于合并列表：https://blog.csdn.net/weixin_39564036/article/details/111286230</p>
+</li>
+<li>
+<p>不要忘了 <code>while i in range(n)</code> 的用法</p>
+</li>
+<li>
+<p>print 中<code>,</code> 和 <code>+</code> 不一样，前者会得到 a b，后者则是 ab</p>
+</li>
+<li>
+<p>split 默认空格</p>
+</li>
+<li>
+<p>可用 <code>*</code> 解包，<code>' '.join()</code> 也可以获得同样效果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> lists:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#f92672">*</span>i)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Out:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 2 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4 5 6</span>
+</span></span></code></pre></div></li>
+<li>
+<p>顺时针旋转矩阵 90°：<code>zip(*matrix[::-1])</code>；逆时针旋转矩阵 90°：<code>list(zip(*matrix))[::-1]</code>。</p>
+</li>
+<li>
+<p><code>zip</code> 源码：https://docs.python.org/zh-cn/3/library/functions.html#zip</p>
+</li>
+<li>
+<p><code>send</code>传值生成器：https://www.jianshu.com/p/6c33bd958f3d</p>
+</li>
+<li>
+<p>批量生成变量 <a class="link" href="https://mp.weixin.qq.com/s/wTRNlu_naggmvumAqRb6PA"  target="_blank" rel="noopener"
+    >https://mp.weixin.qq.com/s/wTRNlu_naggmvumAqRb6PA</a></p>
+</li>
+<li>
+<p>more</p>
+</li>
+</ul>
+<h2 id="模块">模块</h2>
+<ul>
+<li>
+<p>程序包里放 <code>__init__.py</code> 即使是空</p>
+<ul>
+<li>①初始化模块</li>
+<li>②将所在目录当 <code>package</code> 处理</li>
+<li>③<code>from import</code> 导入子包可以用 <code>__all__</code> 加相关模块名字字符列表，导入指定文件，而避免导入系统相关文件</li>
+</ul>
+</li>
+<li>
+<p>当前目录优先级高于 <code>sys.path</code></p>
+</li>
+<li>
+<p><code>from sortedcontainers import SortedList, SortedSet, SortedDict</code> 有序数据结构</p>
+</li>
+<li>
+<p><code>collections.defaultdict()</code> 和 <code>dict.setdefault</code>的使用 <a class="link" href="https://blog.csdn.net/yangsong95/article/details/82319675"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/yangsong95/article/details/82319675</a></p>
+</li>
+<li>
+<p>Bisect <a class="link" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/"  target="_blank" rel="noopener"
+    >https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/</a></p>
+</li>
+<li>
+<p>在Python中也可以用语言特性 @lru_cache 来自动缓存。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> lru_cache
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@lru_cache</span>(<span style="color:#66d9ef">None</span>)
+</span></span></code></pre></div></li>
+<li>
+<p><code>time.strptime</code> 将时间字符串变成，时间相关的元组 <code>time.strftime</code> 获取元组，得到时间</p>
+</li>
+<li>
+<p>动态加载模块 <a class="link" href="https://www.jb51.net/article/57694.htm"  target="_blank" rel="noopener"
+    >https://www.jb51.net/article/57694.htm</a></p>
+</li>
+</ul>
+<h2 id="对象">对象</h2>
+<ul>
+<li><strong>类变量</strong>，用类调用，用于人类寿命此类与具体实例无关的变量</li>
+<li>@classmethod 构建 <strong>类方法</strong>，类直接调用，用途与类变量相似，即不因对象而改变的则定义为类xx，否则为实例xx</li>
+<li>@staticmethod 构建 <strong>静态方法</strong>，无法获取类、实例变量，故只能做逻辑独立的小功能，例如加工字符串</li>
+<li>推荐定义为半私有，方便单元测试</li>
+<li>多继承时，当多个父类有同名方法或者变量时，子类继承左边的父类</li>
+<li>不推荐多继承，这会增加代码的复杂度</li>
+</ul>
+<h2 id="垃圾回收gcgarbage-collection">垃圾回收（GC，Garbage Collection）</h2>
+<p>计数引用，遇上循环引用故有 —— 标记清除、分代回收</p>
+<p><a class="link" href="https://www.jb51.net/article/52229.htm"  target="_blank" rel="noopener"
+    >https://www.jb51.net/article/52229.htm</a></p>
+<p><a class="link" href="https://www.cnblogs.com/panwenbin-logs/p/13531119.html"  target="_blank" rel="noopener"
+    >https://www.cnblogs.com/panwenbin-logs/p/13531119.html</a></p>
+<p><a class="link" href="http://c.biancheng.net/view/5540.html"  target="_blank" rel="noopener"
+    >http://c.biancheng.net/view/5540.html</a></p>
+<h1 id="装饰器">装饰器</h1>
+<ul>
+<li><a class="link" href="https://blog.csdn.net/weixin_41888257/article/details/107563335"  target="_blank" rel="noopener"
+    >@property 与 @staticmethod 装饰器的介绍与使用</a></li>
+</ul>
+<h1 id="正则">正则</h1>
+<ul>
+<li>
+<p><a class="link" href="http://regex101.com/"  target="_blank" rel="noopener"
+    >http://regex101.com/</a></p>
+</li>
+<li>
+<p>正则速查表</p>
+</li>
+</ul>
+<h1 id="jupyter">Jupyter</h1>
+<ul>
+<li>Jupyter lab</li>
+<li>Jupyter notebook</li>
+</ul>
+<h1 id="numpy">NumPy</h1>
+<ul>
+<li>深度之眼 Python_NumPy.ipynb；工具库_NumPy.ipynb</li>
+<li>shape、切片 取到的是视图</li>
+<li>整数、bool 取到的是副本</li>
+<li>shuffle 打乱原数组，permutation 不打乱原数组，返回新数组</li>
+<li>所谓 axis 是沿着轴方向</li>
+</ul>
+<h1 id="scipy">SciPy</h1>
+<ul>
+<li>工具库_SciPy.ipynb</li>
+<li>SciPy 的 线性代数库linalg 比 NumPy 的全面</li>
+<li>关于稀疏矩阵
+<ul>
+<li>dok_matrix（字典保存） 和 lil_matrix（双列表保存） 适合逐渐添加元素</li>
+<li>coo_matrix 使用等长的三个数组保存元素（可重复），但不支持增删查改，若操作只能转为其他矩阵</li>
+</ul>
+</li>
+</ul>
+<h1 id="matplotlib">Matplotlib</h1>
+<ul>
+<li>深度之眼 Python_Matplotlib.ipynb；工具库_Matplotlib.ipynb</li>
+<li>API 基本同 Matlab（所以觉得 Matplotlib 文档烂可以去看 Matlab中国）</li>
+<li>可渲染对象（简单类型和容器类型）基类 Artlist抽象类
+<ul>
+<li>简单类型是标准的绘图组件，如：Line2D、Rectangle、Text、AxesImage等</li>
+<li>容器类型可以包含多个组件，主要将这些组件组织起来，如：Axis、Axes、Figure等</li>
+</ul>
+</li>
+<li>建议按照对象顺序绘图（例如 Figure -&gt; Axes -&gt; axis -&gt; label）</li>
+<li>复用有官方的 Gallery</li>
+<li>有高级封装 <code>import seaborn as sns</code></li>
+<li><code>subplot(323)</code> 和 <code>subplot(3,2,3)</code> 是相同的</li>
+</ul>
+<h1 id="pandas">Pandas</h1>
+<ul>
+<li>深度之眼 Python_Pandas.ipynb；工具库_Pandas.ipynb</li>
+<li>Series（存储单列数据）和 DataFrame（存储多列数据）是最常用的两个对象
+<ul>
+<li>Series 具有数组和字典的能力</li>
+<li>DataFrame 每一列中格式相同，列和列可以不同</li>
+</ul>
+</li>
+<li>取值 loc、iloc、at、iat、lookup，其中 lookup 可以用两个列表以此得到对角元素</li>
+<li>有些判断可以用 query 代替</li>
+<li>read_csv 时 encoding 的 utf-8 不等于 utf-8-sig（开头带了 BOM，用于标识此文件为 utf-8）</li>
+<li>分组运算：根据特定条件，将数据分为多个组，类似正则中的 group</li>
+<li><strong>其实dataframe本身就是一种降维操作，把 n 个特征展示在二维表格上，类似于三维投影在二维，他们把多个维的数据投影在一个固定维上，获得了一堆数据。是一种 reshape。</strong></li>
+</ul>
+<h1 id="scikit-learn">Scikit-learn</h1>
+<ul>
+<li>
+<p>深度之眼 Python_Scikit-learn.ipynb；工具库_Scikit-learn.ipynb</p>
+</li>
+<li>
+<p>标准化数据</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 从sklearn.preprocessing导入StandardScaler  </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 标准化数据，保证每个维度的特征数据方差为1，均值为0，使得预测结果不会被某些维度过大的特征值而主导  </span>
+</span></span><span style="display:flex;"><span>ss <span style="color:#f92672">=</span> StandardScaler()  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit_transform()先拟合数据，再标准化  </span>
+</span></span><span style="display:flex;"><span>X_train <span style="color:#f92672">=</span> ss<span style="color:#f92672">.</span>fit_transform(X_train)  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># transform()数据标准化  </span>
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> ss<span style="color:#f92672">.</span>transform(X_test) 
+</span></span></code></pre></div></li>
+<li></li>
+<li></li>
+</ul>
+<h1 id="tensorflow-2">TensorFlow 2</h1>
+<ul>
+<li>
+<p>建议在 Colab 学 TF，本家，你懂的</p>
+</li>
+<li>
+<p>30 天吃掉 TensorFlow <a class="link" href="https://github.com/lyhue1991/eat_tensorflow2_in_30_days"  target="_blank" rel="noopener"
+    >https://github.com/lyhue1991/eat_tensorflow2_in_30_days</a></p>
+</li>
+<li>
+<p>手撸 AI 算法</p>
+</li>
+<li>
+<p>莫烦 PYTHON <a class="link" href="https://mofanpy.com/"  target="_blank" rel="noopener"
+    >https://mofanpy.com/</a></p>
+</li>
+<li>
+<p>吴恩达 TensorFlow 视频</p>
+<p>视频：https://www.bilibili.com/video/BV1qE411u7z4?p=40</p>
+<p>练习：https://github.com/lmoroney/dlaicourse</p>
+</li>
+<li>
+<p>《动手学深度学习》 <a class="link" href="https://github.com/Shusentang/Dive-into-DL-PyTorch"  target="_blank" rel="noopener"
+    >https://github.com/Shusentang/Dive-into-DL-PyTorch</a></p>
+</li>
+<li>
+<p>GPU计算以张量（Tensor）为单位</p>
+</li>
+<li>
+<p>more</p>
+</li>
+</ul>
+<h1 id="pytorch">Pytorch</h1>
+<ul>
+<li>20天吃掉那只 Pytorch <a class="link" href="https://github.com/lyhue1991/eat_pytorch_in_20_days"  target="_blank" rel="noopener"
+    >https://github.com/lyhue1991/eat_pytorch_in_20_days</a></li>
+<li>numpy 数组和 torch tensor 的区别 <a class="link" href="https://blog.csdn.net/qq_28368377/article/details/103096377"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_28368377/article/details/103096377</a>
+<ol>
+<li>torch 的 tensor，有逗号还有 tensor 字母</li>
+<li>tensor 的 empty 生成的数偏小一点，而且 numpy 的 empty 要用 列表参数</li>
+<li>tensor 默认 int64、tensor.float32，numpy 默认 int32、float64</li>
+<li>tensor 的 size 方法是返回一个 size 方法对象；numpy  的是 int</li>
+<li>可以互转：
+<ul>
+<li>视图：<!-- raw HTML omitted -->.numpy() 是 tensor 转 array；torch.from_numpy(<!-- raw HTML omitted -->) 是 array 转 tensor</li>
+<li>副本：torch.tensor(<!-- raw HTML omitted -->) 是 array 转 tensor</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="colab">Colab</h1>
+<ul>
+<li>
+<p>基本指令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">!</span> <span style="color:#f92672">/</span>opt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>nvidia<span style="color:#f92672">-</span>smi
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">!</span> git clone <span style="color:#f92672">......</span>   <span style="color:#f92672">.</span>git
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>chdir(<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">/</span>content<span style="color:#f92672">/...</span><span style="color:#960050;background-color:#1e0010">”</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>run <span style="color:#f92672">....</span>  <span style="color:#f92672">.</span>py
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tensorflow.python.client <span style="color:#f92672">import</span> device_lib
+</span></span><span style="display:flex;"><span>device_lib<span style="color:#f92672">.</span>list_local_devices()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>tensorflow_version <span style="color:#ae81ff">2.</span>x
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>wget http:<span style="color:#f92672">//</span>
+</span></span></code></pre></div></li>
+<li>
+<p><code>tf.distribute.cluster_resolver.TPUClusterResolver</code> 使用 TPU</p>
+<p>​		https://blog.csdn.net/big91987/article/details/87898100</p>
+<ul>
+<li>
+<p>设置 TPU</p>
+</li>
+<li>
+<p>初始 TPU 环境</p>
+</li>
+<li>
+<p>转化为 TPU 模型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    tpu <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>contrib<span style="color:#f92672">.</span>cluster_resolver<span style="color:#f92672">.</span>TPUClusterResolver() <span style="color:#75715e"># TPU detection</span>
+</span></span><span style="display:flex;"><span>    strategy <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>contrib<span style="color:#f92672">.</span>tpu<span style="color:#f92672">.</span>TPUDistributionStrategy(tpu)
+</span></span><span style="display:flex;"><span>    train_model <span style="color:#f92672">=</span> tf<span style="color:#f92672">.</span>contrib<span style="color:#f92672">.</span>tpu<span style="color:#f92672">.</span>keras_to_tpu_model(model, strategy)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+</span></span><span style="display:flex;"><span>    tpu <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    train_model <span style="color:#f92672">=</span> model
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;Running on GPU or CPU&#39;</span>)
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>more</p>
+</li>
+<li></li>
+</ul>
+<h1 id="pyqt5-开发">PyQt5 开发</h1>
+<ol>
+<li>安装 Pycharm</li>
+<li>创建项目</li>
+<li>项目中安装 pyqt5、pyqt5-tools</li>
+<li>外部工具设置 Qt Designer、pyuic（参数：$FileName$ -o $FileNameWithoutExtension$.py）</li>
+</ol>
+<h1 id="问题">问题</h1>
+<ul>
+<li>
+<p>E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\Python面试基础.pdf</p>
+</li>
+<li>
+<p>E:\资料\计算机\软件\算法\Python面试 128</p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#技巧">技巧</a></li>
+    <li><a href="#模块">模块</a></li>
+    <li><a href="#对象">对象</a></li>
+    <li><a href="#垃圾回收gcgarbage-collection">垃圾回收（GC，Garbage Collection）</a></li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

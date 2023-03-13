@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interviews on FuDongcheng&#39;s Blog</title>
+    <link>https://fadegentle.github.io/interview/</link>
+    <description>Recent content in Interviews on FuDongcheng&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="https://fadegentle.github.io/interview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F/</guid>
+      <description>我的面经 作为总纲，分线对应。
+面试不是求学，是求职。求职是交易，需要的不是谦逊，是自信。（面试也是需要经验，就算在职也可以隔三岔五出去面面）
+发展要快，每五年就要登上一个职业生涯的新台阶。（Do-Manage-Lead/执行-带团-决策）
+https://u.geekbang.org/lesson/131?article=324623
+分清平台价值和个人价值
+最好和公司保持单纯的雇佣关系
+算法工程师 经历 简历 我的面经_经历 项目 我的面经_项目 项目笔记 PPT/PDF 代码 我的面经_Python 我的面经_C&amp;amp;C++ 我的面经_代码 算法 我的面经_算法 书（远不止这些） 百面机器学习 - hulu 百面深度学习 - hulu 机器学习 - 周志华 深度学习 - 花书 统计学习方法2 - 李航 查询（远不止这些） 知乎类（知乎、CSDN、Quora、StactOverflow、SF） 搜索类（Google、百度） 视频类（Bilibili、深度之眼、极客时间、百度云） 后端工程师 前端工程师 大数据工程师 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%AF%B9%E7%BA%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%AF%B9%E7%BA%BF/</guid>
+      <description>我的面经 · 对线 本人面经之 对线 分栏，后续补充。
+主要是关于本人的各阶段经历。（面试也是需要经验，就算在职也可以隔三岔五出去面面）
+发展要快，每五年就要登上一个职业生涯的新台阶。（Do-Manage-Lead/执行-带团-决策）
+分清平台价值和个人价值
+说辞 面试不是求学，是求职。求职是交易，需要的不是谦逊，是自信。
+还有就是，说慢点。语气缓，逼格高，还能拖时长，何乐而不为。
+自我介绍 你好，我是符东成（，标点符号的符，东成西就的东成）。（来自江西，）本科院校是安徽理工大学。爱好是：阅读、（烹饪，女面试官可以说）、计算机、数学、旅游、挑战困难事物（比如游戏，只要关卡自由我喜欢先打boss）。
+问经历 临近毕业的时候我和家里都觉得应该考研，但我对备考实在是没有什么心得，又是跨专业，考了两次，没能考上。20年初的时候又刚好疫情，家里劝我不要出去，就在家里呆着参加了那个 DataFountain 的疫情情绪识别的比赛，就这样学了点人工智能的东西；现在过完年就在找工作，大概就是这样。
+关于长发：
+我之前看到几本书，上面说到数学其实就是艺术，编程也是艺术，透露出一股理性的美；虽然我这个编程艺术刚刚起步，但是我深以为然。
+问技术 （真金不怕火炼，好好学）
+STAR 法则：Situation - 在什么样的环境和背景下，Task - 你要干什么样的事，Action - 你采取了什么样的行动和努力，Result - 最终得到了什么样的效果。同时要有自己的思考，不然显得你只是个吃了堑不长智的傻缺。（当然最好能增加一点自己的感情表达和叙述能力）
+本科学了什么算法：退火、蚁群、遗传、BP
+喜欢什么算法：退火算法、**蚁群算法（最喜欢，大自然信息素重叠这点就很妙）**和遗传算法
+会怎么说：
+不会怎么说：（委婉一点，说点相关的，话锋一转这个不会但是可以学）我常使用的是 yy 算法，xx 算法看书的时候有看到过，但只是一眼之缘，打算以后有空的时候学习。不知道的问题不要强上，不懂可以大方承认，说自己项目不涉及到这块技术，只是了解，原理性的确实没有做过研究。
+常见问题：（将回答以故事形式讲出，并且提炼成几个关键词，这样可以胸有成竹） 遇到过的挑战 遭遇过的滑铁卢 最享受什么 如何体现领导力 如何处理冲突 有哪些可改进之处 说明一下自己的学习能力（做海报、C语言、高数） 提出问题： 你们平时用的是 MindSpore 吗？还是说是 TensorFlow 或者 Pytorch？ 问为人 **为什么来你们公司？**此问题前提当然是面试前先了解一下公司的基本信息，就说 “因为我特别喜欢你们公司，之前只是缓兵之计” 一类的，如果是腾讯小米这种用过的产品还能把使用经历吹一波。
+你觉得一个人最宝贵的品质是什么：好奇
+优点：对未知事物感兴趣，这种情绪发展成为了我对技术的渴望；达者为师，不耻下问，技术为上;
+​	自知之明和不甘心，我都有，缺前者嫉妒，缺后者麻木，两者都有才是不断学习的动力。
+缺点：考虑得太多，并且有时候无法很好地进行取舍。越到关键时刻越谨慎，导致自身压力很大。
+​	虽说有项目，但是落地部署这方面还是没怎么形成职业；对工业化流程仅仅是纸上谈兵，还没有体会过公司的管理运营。
+​	为人偏执拗，有时候遇上问题喜欢硬刚，但这些年来发生了一些事，有所克制。
+问代码 （打铁还需自身硬，多刷 leetcode 多思考才是正途）</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E9%A1%B9%E7%9B%AE/</guid>
+      <description>我的面经 · 项目 本人面经之 项目 分栏，后续补充。
+注意总结自己的心得体会。
+https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D
+DataFountain 疫情情绪识别 项目简介：
+项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2503，参赛队伍 2049。
+项目成绩：
+经多日角逐，第一名 0.746；本队因条件（硬件）有限，最终得分 0.735，位 30-60 名。
+项目过程：
+开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；
+换模型和使用五折交叉检验提升 0.04 左右，数据预处理删去重复ID提升 0.01 左右，调参提升 0.004 左右；
+看队伍提交，LSTM、textCNN；
+换模型 0.69、五折交叉、模型融合、对抗训练，效果不明显，最后目光放回数据，A榜 0.73530，B榜 0.73525，但排名反而提前。
+初始版本 导入相关的库
+载入数据（多模态情感分析；标签分布不平衡，-1，1 较少；样本分布）
+作图分析数据（看文本、图片、视频长度；多模态，但是只用文本，因为其他影响不大）
+抛弃图片数据（url，60%有图片）
+抛弃视频数据（url，25%有视频）
+预训练（bert、embedding 填充长度统一；定义文本数据处理，编码从0开始，数据结果+1）
+将数据变成 embedding、transformer =&amp;gt; array
+标签类别转换
+BERT 模型（三个输入，导入 bert，返回三个）
+最后一层 transformer 向量 pooling 将结果 12 层 transformer 包 训练：五折交叉验证（稳定性提高；结果提高）
+测试（有两种：平均概率相加；每折取出投票）
+生成提交（结果 -1，返回 [-1, 0, 1]）
+改良版本 数据同上 采用 修改模型 bert 修改，加入 LSTM、GRU 等作为 Encoder bert 论文图，倒 4 层连起来（contact）效果最好 未采用（试过但效果一般） 修改损失函数（Focal loss 平衡正负样本本身的比例不均） bert 输出 transformer 向量 可接 LSTM encoding 对抗训练 冠军方案 优势： 通用性 —&amp;gt; 扩展，不止疫情 可落地 —&amp;gt; 前景好 推 广 —&amp;gt; 合作 分析数据特点： 口语化 表情符 —&amp;gt; 乱码 配图随意 仅针对疫情 数据扩充和数据增广，回译方法无效（质量差） 多模态融合（图片数据无用，故此方法无效） focal loss —&amp;gt; 结果下降（故未采用） 后训练（post train，结合领域数据，微调 bert base）： MLN（Masked Language Model，[MASK] 代替词，看预测是否正确） NSP（Next Sentence Prediction，拼接看是否来自同一句） 对抗训练（adversarial training，NLP 中正则化提高泛化能力） F1 值适应优化（准确度最高的模型）以及多折模型融合（5-7 折效果好，再高不明显，得不偿失） 模型集成：词向量模型（bert 基于 wiki，对口语化微博一般） 以下效果都不好 1DCNN（1D，一维） nCCNN（nC，多核） douGRU（Double Gated Recurrent Unit，双向门控循环单元） RNN（Recurrent Neural Network，循环神经网络） Attention RNN（Recursive Neural Network，递归神经网络） 用 catboost 做 stacking 以上训练结果稳定性良好（离线 40 mins，实测 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/20210903%E5%8D%8E%E4%B8%BA%E5%8F%AF%E4%BF%A1%E4%B8%93%E4%B8%9A%E7%BA%A7%E7%A7%91%E7%9B%AE%E4%B8%80%E8%80%83%E8%AF%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/20210903%E5%8D%8E%E4%B8%BA%E5%8F%AF%E4%BF%A1%E4%B8%93%E4%B8%9A%E7%BA%A7%E7%A7%91%E7%9B%AE%E4%B8%80%E8%80%83%E8%AF%95/</guid>
+      <description>题目一：销售套餐 节日活动，有销售套餐 sales = [主产品编号, 成本, 利润]，还有 limit = [主产品编号, 个数]，以及需要凑齐套餐的数量 cnt
+输入：sales limit cnt
+输出：长度为 cnt 的套餐编号数组，凑不到则输出 -1；
+​ 优先输出成本最低的，如果成本一样则输出利润最高的，如果还一样就输出编号小的
+举例 # stdin: sales = [[200, 10, 30], [100, 20, 20], [300, 20, 20], [200, 20, 30]] limit = [[200, 1], [100, 1], [300, 1]] cnt = 2 # stdout: ans = [[200, 10, 30],[100, 20, 20]] # 解析 1）挑出成本最低的`cnt=2`个，发现是[[200, 10, 30], [200, 20, 30]] 2）但是`limit`中，编号为`200`的主产品只能有一个，所以[200, 20, 30]不行 3）而[100, 20, 20]和[300, 20, 20]成本利润都一样，所以选编号小的`100` 4）最后结果是[[200, 10, 30],[100, 20, 20]] 题目二：座位预定 实现座位预定功能，座位预定的类中有：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/3-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/3-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E4%BB%A3%E7%A0%81/</guid>
+      <description>我的面经 · 代码 本人面经之 代码 分栏，后续补充。
+主要是 LeetCode、牛客网、CodeWar、OJ 等题目，来源于剑指Offer、labuladong、pattern、极客时间、深度之眼 等。
+推荐 Python、C++、C 各一次。
+资料 E:\资料\计算机\软件\AI\AI_ibooker群文件\面试刷题\牛客独家春招实习备战手册技术篇 2020-2021.pdf 技巧 向上取整： $$ \begin{aligned}ceil (\frac{x}{y})=\frac{x+(y-1)}{y}\end{aligned}； \begin{aligned}ceil (\frac{x}{y+1})=\frac{x+((y + 1)-1)}{y + 1}\end{aligned}\ $$
+向下取整： $floor$
+上下左右位移：
+dx = [-1, 1, 0, 0] dy = [0, 0, -1, 1] for i in range(4): dfs(x + dx[i], y + dy[i]) more
+位运算 字符串匹配，Sunday解法（相似的查找算法有 KMP，BM，Horspool） https://leetcode-cn.com/problems/implement-strstr/solution/python3-sundayjie-fa-9996-by-tes/
+不用加减乘除运算符加减乘除 基础位运算操作 X &amp;amp; 1 == 1 或者 == 0 判断奇偶 X = X &amp;amp; (X - 1) =&amp;gt; 清零最低位的 1 X &amp;amp; -X =&amp;gt; 得到最低位的 1 更为复杂的位运算操作 有限状态机 ^ 和 &amp;amp; 的级别一样 将 x 最右边的 n 位清零 x &amp;amp; (~0 &amp;lt;&amp;lt; n) 获取 x 的第 n 位值（0或者1） (x &amp;gt;&amp;gt; n) &amp;amp; 1 获取 x 的第 n 位的幂值 x &amp;amp; (1 &amp;lt;&amp;lt; (n - 1)) 仅将第 n 位置为 1 x | (1 &amp;lt;&amp;lt; n) 仅将第 n 位置为 0 x &amp;amp; (~(1 &amp;lt;&amp;lt; n)) 将 x 最高位至第 n 位（含）清零 x &amp;amp; ((1 &amp;lt;&amp;lt; n) - 1) 将第 n 位至第 0 位（含）清零 x &amp;amp; (~((1 &amp;lt;&amp;lt; (n + 1)) - 1)) 最常见代码 推荐的优质模板或者思路</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/3-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/3-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_python/</guid>
+      <description>我的面经 · Python ​	本人面经之 Python 分栏，后续补充。
+​	主要是 Python 相关技巧经验。
+基础 技巧 \r 本行开头（可用 print( , end=&amp;rsquo;\r&amp;rsquo;) 不断从头打印）\n 下一行开头
+格式化字符串 f&amp;rsquo;&amp;rsquo; 的用法 https://blog.csdn.net/yizhuanlu9607/article/details/89530982
+max(l, key=lamda x: abs(x))：可直接获取绝对值最大的 x
+exec(string) 运行字符串
+连接推荐 str.join(list)，更快
+字符串链接不用加什么 &#39;py&#39;&#39;thon&#39; =&amp;gt; &#39;python&#39;
+字典默认值 d.get(&#39;a&#39;, []) 如果有 &amp;lsquo;a&amp;rsquo; 则返回value，否则返回 []
+%%time打印整个单元格的壁时间，而%time只提供第一行的时间。使用%%time或%time打印2个值：①CPU时间；②壁厚时间
+海象运算符:=（3.8+特性）https://blog.csdn.net/qq_40244755/article/details/102685199
+转换编码
+def re_encode(path): with open(path, &amp;#39;r&amp;#39;, encoding=&amp;#39;GB2312&amp;#39;, errors=&amp;#39;ignore&amp;#39;) as file: lines = file.readlines() with open(path, &amp;#39;w&amp;#39;, encoding=&amp;#39;utf-8&amp;#39;) as file: file.write(&amp;#39;&amp;#39;.join(lines)) sum 用于合并列表：https://blog.csdn.net/weixin_39564036/article/details/111286230
+不要忘了 while i in range(n) 的用法</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/3-2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_cc&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/3-2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_cc&#43;&#43;/</guid>
+      <description>我的面经 · C/C++ ​	本人面经之 C/C++ 分栏，后续补充。
+​	主要是 C/C++相关技巧经验。
+基础 * 和 &amp;amp; 是什么？
+C++ auto ，for range （我觉得是迭代器，具体是不是不好说）</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/3-3-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/3-3-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>我的面经 · 数据库 ​	本人面经之 数据库 分栏，后续补充。
+​	主要是 数据库相关技巧经验。
+知识点 MySQL 涉及到查询多个列和在数据量较大的时候查找效率较低，通常建议使用 union 代替 or。 Redis MongoDB Hadoop Spark PySpark </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95/</guid>
+      <description>我的面经 · 算法 本人面经之 算法 分栏，后续补充。
+投递经验（无反应的没写上去） 百度 NLP 补录（2020，暴毙） 博彦科技（投的时候不知道是外包，问了句就没理我了） 软通（外包，要现场面，拒绝） 杭州华为OD（凉） 每日互动（在面） 机器学习（Machine Learning） 资料 E:\资料\计算机\软件\ML E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\机器学习测试题.pdf 网站 AI Studio ApacheCN 极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ） 深度之眼 王的机器 参考书（纸书、电子书） 百面机器学习 机器学习 - 周志华 统计学习方法2 - 李航 知识点 招聘常见要求
+HMM CRF SVM LR DT BOOST K-MEANS GBT TensorFlow / Pytorch / Keras 问题 预测评估 精确率/查准率（Precision）、准确率（Accuracy）和召回率/查全率（Recall）？https://www.zhihu.com/question/19645541 Precision：你觉得的阳性里头，对了多少（真阳/猜阳） Accuracy：有多少判断正确（猜对/全体） Recall：正样本猜对多少（真阳/正样本） 推荐理解方法： Google 机器学习线图 知乎 饼图 原创：脑内模拟 Excel 筛法 想象一堆数据，最右边两列分别是——label、predict Precision 即筛出 predict 的 1，看其中 1-1 的占比 Accuracy 即看整表，看其中 1-1 和 0-0 的占比 Recall 即筛出 label 的 1，看其中 1-1 的占比 机器学习性能评估指标？ROC曲线，PR曲线，AUC等。http://charleshm.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-0-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95_%E5%8D%8E%E4%B8%BAod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-0-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95_%E5%8D%8E%E4%B8%BAod/</guid>
+      <description>我的面经 · 算法 · 华为OD 【0】BOSS 招聘 + 微信 简单问了一下
+是否了解 OD？ 愿不愿意？ 是不是一本？ 发了简历，然后就加了微信，对方人很好，很好说话，也会劝你准备。
+【1】机试 - 邮件：2021年3月26日（星期五）下午6 : 21 接到邮件后随时可以开启
+三道题 150 分钟，（100 + 100） + 200 = 400，按 AC 百分比计分
+电脑摄像头开启，录屏开启；手机要开小程序，以防切屏
+面经写迟了，题目忘了（动态规划）- 95.05% 面经写迟了，题目忘了（数组）- 100% 网络节点路径 [node1, node2, distance] 三元组求某俩节点最短路径（有向图，动态规划）- 100% 【2】心理测评 - 邮件：2021年3月30日（星期二）下午8 : 03 接到邮件后随时可以开启
+104 道题，翻来覆去就那几个，但环环相扣，附带测谎，劝大家做好准备
+【3】技术一面 - 视频：2021-04-06 19:30-20:30 这个会有华为方的人加你好友，随便问点东西，然后商量面试时间
+还有两轮技术面（各一小时）、一轮HR面、一轮综合面
+好难熬，不知道能否过
+面完了，是个小哥，和善；估计是凉了。
+**软件：**Zoom **方式：**视频面，我单方面视频，他语音 内容： 先自我介绍，讲述一下经历，至今干了什么？（说了一下本科，然后介绍了一下专业，是不是自学的，我说专业学了点启发式算法和神经网络，但基本是自学的） 技术问题 （不一定正确，只是写我是如何回答，下同） 数据处理听过吗？（听过，就数据清洗、数据处理之类的） 缺失值怎么处理？（删掉、置零、均值、（中位数没说）、牛顿插值法、拉格朗日插值法、模拟法（没来得及说）） 你能简单介绍一下牛顿插值法原理吗？（就是两个数据的均差得到三个数据的均差，以此类推得到整个数据的均差） 逻辑回归的函数介绍一下（sigmoid，$\frac{e^x}{1 + e^x}$） 简单介绍一下 sigmoid 及其优缺点（优点：0-1，平滑；缺点：梯度爆炸，梯度消失） 降维知道吗，PCA 之类的？简单介绍一下 PCA 原理（找两个合适的基向量投影） 相关性知道吗？皮尔森相关系数（我说相关性知道，皮尔森系数很耳熟但忘了） 给两个数据金属的最高温和最低温，正相关是什么负相关又是什么？（见我忘了皮尔森系数，就引导了一下，问了正相关负相关，我说正相关是一个数据越大另一个越大，负相关一个数越大另一个越小） 标准化了解吗？说一下（减去均值除以标准差，加快收敛，（一直提示我说无量纲化）） 为什么离散化？（现代科学计算都是建立在计算机上，而计算机本身就是处理的离散信息，数字化离散化易于计算） 随机森林和 boost 是集成学习的什么分类？（Bagging 和 Boosting） Bagging 和 Boosting 有什么区别或者侧重点吗？（Bagging 类似电学里的并行，Boosting 类似串行，前者更看重差异化，后者更看重更好只为越来越好） 那 Bagging 里最后如何得到结果？（两种，一种是均值，一种是投票） 随机森林是干什么用的？（我不确定地说分类，他问我是不是没实际用过，我老实说是，常用 stacking） CNN 结构介绍一下？原理介绍一下（卷积层、池化层，卷积核相当于视野将矩阵扫描过去，卷积核有是否间隔之分，池化层有最大池化、均值池化之类） RNN 结构介绍一下？（循环神经网络，有短期记忆功能，将上个输出给到下个输入） RNN 为什么会梯度消失或者梯度爆炸（一直求导，所以会导致梯度消失或者梯度爆炸）（小哥教我，计算机小数点后有极限，若算力无极限的话就不会有这个问题） LSTM 有几个门？（三个，输入输出forget） LSTM 改进了 RNN 的哪里（计算更快，可以长短记忆，（加快收敛）） GRN 改进了 LSTM 的哪里？哪个更简洁（GRN，合并了两个门） 你简历上说熟悉 NLP，那 NLP 有很多子领域啊，比如语义分析、机器翻译、关系抽取、命名实体识别、文本分类等，最擅长的是什么子领域（情绪识别） 情绪识别怎么操作的（拿到数据标为 -1，0，1） 有没有参加过比赛（完整参加下的就是 DataFountain 的疫情情绪识别）一开始就是 Bert，改了一下倒四，损失函数改成了 focal loss，后面改了交叉验证的折数、LSTM、TextCNN、（改epcho忘说了）试过了都不行，最后还是选择回了Bert） 代码（聊天框发题，最大长度递增子序列，分享屏幕，他先离开，给 30 分钟。思考了一下， 15 分钟结束了，问我有没有改进的余地；只给了我几秒钟，我没来得及思考就急忙结束了，就只能随口说了个二分（估计是着急结束了，感觉凉了）；最后就是场面话，说会把面试结果给下个面试官） **收获：**第一次面试，终归是学到了不少，对面也很和善，感觉面试确实要多练，而且这次很紧张，下次应该当成聊天会好点。 4.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-0-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%88%86%E6%9E%90%E5%B8%88_%E6%AF%8F%E6%97%A5%E4%BA%92%E5%8A%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-0-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%88%86%E6%9E%90%E5%B8%88_%E6%AF%8F%E6%97%A5%E4%BA%92%E5%8A%A8/</guid>
+      <description>我的面经 · 数据建模分析师 · 每日互动 【0】电话：2021年5月18日（星期二）下午 4 : 00 **方式：**电话
+**人员：**技术部门的小哥
+内容：
+我们这是广告推荐算法的，先简单介绍一下自己（balabala）
+什么规划（想在工业界站稳脚跟）
+讲一个项目，你这个项目是干什么的（疫情识别balabala）
+用的什么指标（F1） 还有什么常用的指标（P、R、A、PR、A&amp;hellip;曲线下区域面积） 讲一下曲线下区域面积的横纵坐标是什么（P&amp;hellip;忘了，反正面积越大越好，缺点就是对不平衡数据不敏感） 确实，那面对不平衡数据怎么处理（上采样、下采样、插值、数据生成之类的） 机器学习：
+讲一个你最熟悉的算法（数据结构的算法还是机器学习的算法？机器学习的，LSTM行吗？）
+可以（LSTM 是为了克服 RNN 的记忆短期，所以加了三个门，输入门、输出门和遗忘门，把上个单元的记忆或者说信息按一定比例继承到下个单元，以此克服短期记忆和梯度爆炸或者梯度消失）
+为什么会梯度消失呢？（计算机的算力有极限，比如后面的零太多，计算到后面显示或者说计算不出来就会归零）
+如何克服梯度消失？（换模型、批标准化、早停、设定阈值）
+批标准化讲一下（批标准化，BN，就是给数据进行无量纲化）
+那批标准化一般放在哪（这个都有吧，有的数据一进来就批标准化，有的每层都批标准化，但一般还是就一两次批标准化）
+集成学习：
+你这上面写了解强化学习和集成学习，你介绍一下集成学习有哪些算法（集成学习有 bagging、boosting、stacking，有增强树、随机森林之类的） 你讲下 boosting 大概是什么样的（就类似放大器，一直强化） 说详细一点（就是把数据输入获得一个弱分类器，然后用这个弱分类器去训练一个更强的分类器，直到获得一个强分类器） 决策树和随机森林有什么区别（随机森林是多棵决策树，相较而言，随机森林随机性更强；如果不用优化算法的话，随机森林很难计算） 为什么说随机性更强，他随机了什么？（数据） 还有呢？（憋住了&amp;hellip;） 特征（那不也是数据吗） 哈，行吧，那决策树是靠什么分的节点（emmm&amp;hellip;.不是直接用数据分的吗？） 你听过信息增益吗？（哦哦哦，信息增益，信息增益比之类，还有ID3、ID4之类的） 特征工程：
+你对特征工程有什么研究吗？（举例疫情项目中的特征工程balabala） 技能：
+你这会的东西挺杂啊？（没那么夸张，就是掌握基本操作的程度，因为有些公司要自己调数据库之类的）
+你这 SQL 之类具体什么程度？（大概就是力扣刷题的程度，最近有买一本书，还在深入学习）
+基本查询语句之类的知道吧？（知道的，select、where之类）
+那这样，我问下小表 JOIN IN 大表有出现过什么问题吗？（emmm&amp;hellip;.这不大清楚，我没有个那种经历）
+你平时用 SQL 哪用的？数据多大（就 SQL 刷题之类的，数据的话比赛的时候他会有 csv 格式的数据）
+你平时有看业界前沿信息吗？（刚学的时候有看论文，但现在也要吃饭嘛，没那么多时间，就是逛逛网站和看公众号来了解信息；我是打算稳定下来之后，有时间再看）
+你 Python 应该很熟悉吧？（挺熟悉的）
+我看你这网页上还有一些数据结构 Python 实现（哦，那个我放 Github 上面去了，还没有放上面）</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%90%8E%E7%AB%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%90%8E%E7%AB%AF/</guid>
+      <description>我的面经 · 后端 本人面经之 后端 分栏，后续补充。
+关于后端。
+投递经验 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-3-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-3-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%B8%B8%E6%88%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-4-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-4-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE/</guid>
+      <description>我的面经 · 数据 本人面经之 数据 分栏，后续补充。
+关于大数据。
+投递经验 乐信圣文（2021.3.16，等笔试结果中，无果，已凉） 重庆蚂蚁数据分析师（在投） Electronic Arts 数据分析（考虑） 数据分析 https://mp.weixin.qq.com/s/uzuMWVakH2fo8-YL_vng1Q
+玩游戏 玩自己负责的数据分析的游戏，玩竞品游戏，感受同类别不同游戏带来的体验
+漏斗分析 发现用户留存特别低，通过转化漏斗发现用户体验的不足
+重点：转化率和流失率
+https://www.douban.com/group/topic/113056536/
+AB测试 发现某个按钮的改动可以对留存有正向影响，通过实验确定这种假设是否成立
+其实就类似控制变量法
+https://www.zhihu.com/question/20045543
+假设建议
+概念化操作
+抽样方法
+参数估计
+t检验：https://zhuanlan.zhihu.com/p/138711532?from_voters_page=true
+https://www.cnblogs.com/think-and-do/p/6509239.html等
+用户分群 基于模型实现用户价值划分，进而针对不同用户采用不同商业策略
+https://zhuanlan.zhihu.com/p/85859324
+用户获取 通过数据挖掘，发现什么样的投放事件能获取游戏的核心用户
+https://zhuanlan.zhihu.com/p/81738228
+Hadoop Spark </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/4-5-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E8%BF%90%E7%BB%B4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/4-5-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E8%BF%90%E7%BB%B4/</guid>
+      <description>我的面经 · 运维 本人面经之 运维 分栏，后续补充。
+其实就是除了语言和理论的其他技术部分。
+Linux 操作 切换键主要是Ctrl，少量的Meta（Alt）。 基本移动： Move back one character. Ctrl + b Move forward one character. Ctrl + f Delete current character. Ctrl + d Delete previous character. Backspace Undo. Ctrl + - 快速移动： Move to the start of line. Ctrl + a Move to the end of line. Ctrl + e Move forward a word. Meta + f (a word contains alphabets and digits, no symbols) Move backward a word.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/draft/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/draft/</guid>
+      <description>$$ N_{纤维数量}=\frac{(l·w·h)·纤维含量}{l_{纤维}·\pi·\frac{纤维直径}{2}}\ l_{向量}= \sqrt{i_1^2+j_1^2+k_1^2} $$
+一级标题 二级标题 加粗
+斜体
+ddf dfd dddddddd power dddddddd
+import c (baidu)[www.baidu.com]</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/readme/</guid>
+      <description>interview 古老的面经</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://fadegentle.github.io/interview/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://fadegentle.github.io/interview/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>统计学习方法笔记 这是本人对统计学习方法学习中摘录的一些知识点
+本机文件路径：E:\资料\计算机\软件\AI\深度之眼\李航《统计学习方法》带学训练营
+极大似然估计（MLE） MLE，Maximum Likelihood Estimation 未知参数$\theta$是定值 目标：位置参数$\theta$使得数据集D发生的概率最大，$max\ P(D|\theta)$ 下溢出（Underflow） 数据过小，$lg$ 一下（取对数）
+梯度下降法（Gradient Descent） 过拟合（Over Fitting） Train 过度 —&amp;gt; Early Stop 模型太复杂 —&amp;gt; 正则化等，降低复杂度、NN层数减少、剪枝等 欠拟合（Under Fitting） 超平面（Hyperplane） 函数间距 集合间距 感知机（Perceptron） 思想：分错的点和直线距离求和最小
+维度d大 —&amp;gt; 对偶
+样本N大 —&amp;gt; 原始
+为了避免0处不可微，$sign(wx+b)$脱去了$sign$
+正则化（Regularization） L1：特征值更稀疏，可为零
+L2：权值更均匀，接近零
+系数过小，约束无用
+系数过大，约束过度欠拟合
+对偶形式（Dual Form） K近邻（KNN） KNN，K Nearest Neighbors
+思想：物以类聚
+K指最近的K个样本
+K值过小，太敏感，噪声容易影响预测出错
+K值过大，不相似的也会囊括进去，使预测错误
+实际中先取个小的K值，交叉验证再调大
+K近邻没有显式的训练过程
+分类决策规则：多数表决
+范数（Norm） 欧氏距离$L_1$范数 曼哈顿/城市街区距离$L_2$范数 切比雪夫/棋盘距离一致范数$L_\infty$ $$ L_p(x_i, x_j) = (\sum\limits_{l=1}^n\left|x_i^{(l)}-x_j^{(l)}\right|^p)^\frac{1}{p} $$
+Kd树（Kd Tree） 步骤：①构造；②搜索</description>
+    </item>
+    
+  </channel>
+</rss>

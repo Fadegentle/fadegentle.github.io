@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我的面经 · 数据建模分析师 · 每日互动 【0】电话：2021年5月18日（星期二）下午 4 : 00 **方式：**电话
+**人员：**技术部门的小哥
+内容：
+我们这是广告推荐算法的，先简单介绍一下自己（balabala）
+什么规划（想在工业界站稳脚跟）
+讲一个项目，你这个项目是干什么的（疫情识别balabala）
+用的什么指标（F1） 还有什么常用的指标（P、R、A、PR、A&amp;hellip;曲线下区域面积） 讲一下曲线下区域面积的横纵坐标是什么（P&amp;hellip;忘了，反正面积越大越好，缺点就是对不平衡数据不敏感） 确实，那面对不平衡数据怎么处理（上采样、下采样、插值、数据生成之类的） 机器学习：
+讲一个你最熟悉的算法（数据结构的算法还是机器学习的算法？机器学习的，LSTM行吗？）
+可以（LSTM 是为了克服 RNN 的记忆短期，所以加了三个门，输入门、输出门和遗忘门，把上个单元的记忆或者说信息按一定比例继承到下个单元，以此克服短期记忆和梯度爆炸或者梯度消失）
+为什么会梯度消失呢？（计算机的算力有极限，比如后面的零太多，计算到后面显示或者说计算不出来就会归零）
+如何克服梯度消失？（换模型、批标准化、早停、设定阈值）
+批标准化讲一下（批标准化，BN，就是给数据进行无量纲化）
+那批标准化一般放在哪（这个都有吧，有的数据一进来就批标准化，有的每层都批标准化，但一般还是就一两次批标准化）
+集成学习：
+你这上面写了解强化学习和集成学习，你介绍一下集成学习有哪些算法（集成学习有 bagging、boosting、stacking，有增强树、随机森林之类的） 你讲下 boosting 大概是什么样的（就类似放大器，一直强化） 说详细一点（就是把数据输入获得一个弱分类器，然后用这个弱分类器去训练一个更强的分类器，直到获得一个强分类器） 决策树和随机森林有什么区别（随机森林是多棵决策树，相较而言，随机森林随机性更强；如果不用优化算法的话，随机森林很难计算） 为什么说随机性更强，他随机了什么？（数据） 还有呢？（憋住了&amp;hellip;） 特征（那不也是数据吗） 哈，行吧，那决策树是靠什么分的节点（emmm&amp;hellip;.不是直接用数据分的吗？） 你听过信息增益吗？（哦哦哦，信息增益，信息增益比之类，还有ID3、ID4之类的） 特征工程：
+你对特征工程有什么研究吗？（举例疫情项目中的特征工程balabala） 技能：
+你这会的东西挺杂啊？（没那么夸张，就是掌握基本操作的程度，因为有些公司要自己调数据库之类的）
+你这 SQL 之类具体什么程度？（大概就是力扣刷题的程度，最近有买一本书，还在深入学习）
+基本查询语句之类的知道吧？（知道的，select、where之类）
+那这样，我问下小表 JOIN IN 大表有出现过什么问题吗？（emmm&amp;hellip;.这不大清楚，我没有个那种经历）
+你平时用 SQL 哪用的？数据多大（就 SQL 刷题之类的，数据的话比赛的时候他会有 csv 格式的数据）
+你平时有看业界前沿信息吗？（刚学的时候有看论文，但现在也要吃饭嘛，没那么多时间，就是逛逛网站和看公众号来了解信息；我是打算稳定下来之后，有时间再看）
+你 Python 应该很熟悉吧？（挺熟悉的）
+我看你这网页上还有一些数据结构 Python 实现（哦，那个我放 Github 上面去了，还没有放上面）'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/4-0-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%88%86%E6%9E%90%E5%B8%88_%E6%AF%8F%E6%97%A5%E4%BA%92%E5%8A%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='我的面经 · 数据建模分析师 · 每日互动 【0】电话：2021年5月18日（星期二）下午 4 : 00 **方式：**电话
+**人员：**技术部门的小哥
+内容：
+我们这是广告推荐算法的，先简单介绍一下自己（balabala）
+什么规划（想在工业界站稳脚跟）
+讲一个项目，你这个项目是干什么的（疫情识别balabala）
+用的什么指标（F1） 还有什么常用的指标（P、R、A、PR、A&amp;hellip;曲线下区域面积） 讲一下曲线下区域面积的横纵坐标是什么（P&amp;hellip;忘了，反正面积越大越好，缺点就是对不平衡数据不敏感） 确实，那面对不平衡数据怎么处理（上采样、下采样、插值、数据生成之类的） 机器学习：
+讲一个你最熟悉的算法（数据结构的算法还是机器学习的算法？机器学习的，LSTM行吗？）
+可以（LSTM 是为了克服 RNN 的记忆短期，所以加了三个门，输入门、输出门和遗忘门，把上个单元的记忆或者说信息按一定比例继承到下个单元，以此克服短期记忆和梯度爆炸或者梯度消失）
+为什么会梯度消失呢？（计算机的算力有极限，比如后面的零太多，计算到后面显示或者说计算不出来就会归零）
+如何克服梯度消失？（换模型、批标准化、早停、设定阈值）
+批标准化讲一下（批标准化，BN，就是给数据进行无量纲化）
+那批标准化一般放在哪（这个都有吧，有的数据一进来就批标准化，有的每层都批标准化，但一般还是就一两次批标准化）
+集成学习：
+你这上面写了解强化学习和集成学习，你介绍一下集成学习有哪些算法（集成学习有 bagging、boosting、stacking，有增强树、随机森林之类的） 你讲下 boosting 大概是什么样的（就类似放大器，一直强化） 说详细一点（就是把数据输入获得一个弱分类器，然后用这个弱分类器去训练一个更强的分类器，直到获得一个强分类器） 决策树和随机森林有什么区别（随机森林是多棵决策树，相较而言，随机森林随机性更强；如果不用优化算法的话，随机森林很难计算） 为什么说随机性更强，他随机了什么？（数据） 还有呢？（憋住了&amp;hellip;） 特征（那不也是数据吗） 哈，行吧，那决策树是靠什么分的节点（emmm&amp;hellip;.不是直接用数据分的吗？） 你听过信息增益吗？（哦哦哦，信息增益，信息增益比之类，还有ID3、ID4之类的） 特征工程：
+你对特征工程有什么研究吗？（举例疫情项目中的特征工程balabala） 技能：
+你这会的东西挺杂啊？（没那么夸张，就是掌握基本操作的程度，因为有些公司要自己调数据库之类的）
+你这 SQL 之类具体什么程度？（大概就是力扣刷题的程度，最近有买一本书，还在深入学习）
+基本查询语句之类的知道吧？（知道的，select、where之类）
+那这样，我问下小表 JOIN IN 大表有出现过什么问题吗？（emmm&amp;hellip;.这不大清楚，我没有个那种经历）
+你平时用 SQL 哪用的？数据多大（就 SQL 刷题之类的，数据的话比赛的时候他会有 csv 格式的数据）
+你平时有看业界前沿信息吗？（刚学的时候有看论文，但现在也要吃饭嘛，没那么多时间，就是逛逛网站和看公众号来了解信息；我是打算稳定下来之后，有时间再看）
+你 Python 应该很熟悉吧？（挺熟悉的）
+我看你这网页上还有一些数据结构 Python 实现（哦，那个我放 Github 上面去了，还没有放上面）'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/4-0-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%88%86%E6%9E%90%E5%B8%88_%E6%AF%8F%E6%97%A5%E4%BA%92%E5%8A%A8/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="我的面经 · 数据建模分析师 · 每日互动 【0】电话：2021年5月18日（星期二）下午 4 : 00 **方式：**电话
+**人员：**技术部门的小哥
+内容：
+我们这是广告推荐算法的，先简单介绍一下自己（balabala）
+什么规划（想在工业界站稳脚跟）
+讲一个项目，你这个项目是干什么的（疫情识别balabala）
+用的什么指标（F1） 还有什么常用的指标（P、R、A、PR、A&amp;hellip;曲线下区域面积） 讲一下曲线下区域面积的横纵坐标是什么（P&amp;hellip;忘了，反正面积越大越好，缺点就是对不平衡数据不敏感） 确实，那面对不平衡数据怎么处理（上采样、下采样、插值、数据生成之类的） 机器学习：
+讲一个你最熟悉的算法（数据结构的算法还是机器学习的算法？机器学习的，LSTM行吗？）
+可以（LSTM 是为了克服 RNN 的记忆短期，所以加了三个门，输入门、输出门和遗忘门，把上个单元的记忆或者说信息按一定比例继承到下个单元，以此克服短期记忆和梯度爆炸或者梯度消失）
+为什么会梯度消失呢？（计算机的算力有极限，比如后面的零太多，计算到后面显示或者说计算不出来就会归零）
+如何克服梯度消失？（换模型、批标准化、早停、设定阈值）
+批标准化讲一下（批标准化，BN，就是给数据进行无量纲化）
+那批标准化一般放在哪（这个都有吧，有的数据一进来就批标准化，有的每层都批标准化，但一般还是就一两次批标准化）
+集成学习：
+你这上面写了解强化学习和集成学习，你介绍一下集成学习有哪些算法（集成学习有 bagging、boosting、stacking，有增强树、随机森林之类的） 你讲下 boosting 大概是什么样的（就类似放大器，一直强化） 说详细一点（就是把数据输入获得一个弱分类器，然后用这个弱分类器去训练一个更强的分类器，直到获得一个强分类器） 决策树和随机森林有什么区别（随机森林是多棵决策树，相较而言，随机森林随机性更强；如果不用优化算法的话，随机森林很难计算） 为什么说随机性更强，他随机了什么？（数据） 还有呢？（憋住了&amp;hellip;） 特征（那不也是数据吗） 哈，行吧，那决策树是靠什么分的节点（emmm&amp;hellip;.不是直接用数据分的吗？） 你听过信息增益吗？（哦哦哦，信息增益，信息增益比之类，还有ID3、ID4之类的） 特征工程：
+你对特征工程有什么研究吗？（举例疫情项目中的特征工程balabala） 技能：
+你这会的东西挺杂啊？（没那么夸张，就是掌握基本操作的程度，因为有些公司要自己调数据库之类的）
+你这 SQL 之类具体什么程度？（大概就是力扣刷题的程度，最近有买一本书，还在深入学习）
+基本查询语句之类的知道吧？（知道的，select、where之类）
+那这样，我问下小表 JOIN IN 大表有出现过什么问题吗？（emmm&amp;hellip;.这不大清楚，我没有个那种经历）
+你平时用 SQL 哪用的？数据多大（就 SQL 刷题之类的，数据的话比赛的时候他会有 csv 格式的数据）
+你平时有看业界前沿信息吗？（刚学的时候有看论文，但现在也要吃饭嘛，没那么多时间，就是逛逛网站和看公众号来了解信息；我是打算稳定下来之后，有时间再看）
+你 Python 应该很熟悉吧？（挺熟悉的）
+我看你这网页上还有一些数据结构 Python 实现（哦，那个我放 Github 上面去了，还没有放上面）">
+    </head>
+    <body class="
+    article-page 
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        on-phone--column extended
+    
+">
+    
+        <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+            
+        
+        
+        <h1 class="site-name"><a href="/">FuDongcheng&#39;s Blog</a></h1>
+        <h2 class="site-description"></h2></header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/4-0-1-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1%E5%88%86%E6%9E%90%E5%B8%88_%E6%AF%8F%E6%97%A5%E4%BA%92%E5%8A%A8/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="我的面经--数据建模分析师--每日互动">我的面经 · 数据建模分析师 · 每日互动</h1>
+<h1 id="0电话2021年5月18日星期二下午-4--00">【0】电话：2021年5月18日（星期二）下午 4 : 00</h1>
+<ul>
+<li>
+<p>**方式：**电话</p>
+</li>
+<li>
+<p>**人员：**技术部门的小哥</p>
+</li>
+<li>
+<p><strong>内容：</strong></p>
+</li>
+</ul>
+<ol>
+<li>
+<p>我们这是广告推荐算法的，先简单<strong>介绍</strong>一下自己（balabala）</p>
+</li>
+<li>
+<p>什么<strong>规划</strong>（想在工业界站稳脚跟）</p>
+</li>
+<li>
+<p>讲一个<strong>项目</strong>，你这个项目是干什么的（疫情识别balabala）</p>
+<ul>
+<li>用的什么指标（F1）</li>
+<li>还有什么常用的指标（P、R、A、PR、A&hellip;曲线下区域面积）</li>
+<li>讲一下曲线下区域面积的横纵坐标是什么（P&hellip;忘了，反正面积越大越好，缺点就是对不平衡数据不敏感）</li>
+<li>确实，那面对不平衡数据怎么处理（上采样、下采样、插值、数据生成之类的）</li>
+</ul>
+</li>
+<li>
+<p><strong>机器学习：</strong></p>
+<ul>
+<li>
+<p>讲一个你最熟悉的<strong>算法</strong>（数据结构的算法还是机器学习的算法？机器学习的，LSTM行吗？）</p>
+</li>
+<li>
+<p>可以（LSTM 是为了克服 RNN 的记忆短期，所以加了三个门，输入门、输出门和遗忘门，把上个单元的记忆或者说信息按一定比例继承到下个单元，以此克服短期记忆和梯度爆炸或者梯度消失）</p>
+</li>
+<li>
+<p>为什么会梯度消失呢？（计算机的算力有极限，比如后面的零太多，计算到后面显示或者说计算不出来就会归零）</p>
+</li>
+<li>
+<p>如何克服梯度消失？（换模型、批标准化、早停、设定阈值）</p>
+</li>
+<li>
+<p>批标准化讲一下（批标准化，BN，就是给数据进行无量纲化）</p>
+</li>
+<li>
+<p>那批标准化一般放在哪（这个都有吧，有的数据一进来就批标准化，有的每层都批标准化，但一般还是就一两次批标准化）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>集成学习：</strong></p>
+<ul>
+<li>你这上面写了解强化学习和集成学习，你介绍一下集成学习有哪些算法（集成学习有 bagging、boosting、stacking，有增强树、随机森林之类的）</li>
+<li>你讲下 boosting 大概是什么样的（就类似放大器，一直强化）</li>
+<li>说详细一点（就是把数据输入获得一个弱分类器，然后用这个弱分类器去训练一个更强的分类器，直到获得一个强分类器）</li>
+<li>决策树和随机森林有什么区别（随机森林是多棵决策树，相较而言，随机森林随机性更强；如果不用优化算法的话，随机森林很难计算）</li>
+<li>为什么说随机性更强，他随机了什么？（数据）</li>
+<li>还有呢？（憋住了&hellip;）</li>
+<li>特征（那不也是数据吗）</li>
+<li>哈，行吧，那决策树是靠什么分的节点（emmm&hellip;.不是直接用数据分的吗？）</li>
+<li>你听过信息增益吗？（哦哦哦，信息增益，信息增益比之类，还有ID3、ID4之类的）</li>
+</ul>
+</li>
+<li>
+<p><strong>特征工程：</strong></p>
+<ul>
+<li>你对特征工程有什么研究吗？（举例疫情项目中的特征工程balabala）</li>
+</ul>
+</li>
+<li>
+<p><strong>技能：</strong></p>
+<ul>
+<li>
+<p>你这会的东西挺杂啊？（没那么夸张，就是掌握基本操作的程度，因为有些公司要自己调数据库之类的）</p>
+</li>
+<li>
+<p>你这 SQL 之类具体什么程度？（大概就是力扣刷题的程度，最近有买一本书，还在深入学习）</p>
+</li>
+<li>
+<p>基本查询语句之类的知道吧？（知道的，select、where之类）</p>
+</li>
+<li>
+<p>那这样，我问下小表 JOIN IN 大表有出现过什么问题吗？（emmm&hellip;.这不大清楚，我没有个那种经历）</p>
+</li>
+<li>
+<p>你平时用 SQL 哪用的？数据多大（就 SQL 刷题之类的，数据的话比赛的时候他会有 csv 格式的数据）</p>
+</li>
+<li>
+<p>你平时有看业界前沿信息吗？（刚学的时候有看论文，但现在也要吃饭嘛，没那么多时间，就是逛逛网站和看公众号来了解信息；我是打算稳定下来之后，有时间再看）</p>
+</li>
+<li>
+<p>你 Python 应该很熟悉吧？（挺熟悉的）</p>
+</li>
+<li>
+<p>我看你这网页上还有一些数据结构 Python 实现（哦，那个我放 Github 上面去了，还没有放上面）</p>
+</li>
+<li>
+<p>那这样，我想个题，给一串字符串，求最长不重复子串，你的实现思路是什么样的（弄个缓存列表，查看有没有重复的，可能动态规划会好点）</p>
+</li>
+<li>
+<p>动态规划的话，状态转移方程是什么？（给我点时间）</p>
+</li>
+<li>
+<p>好，不急（这题求长度还是子串本身？）</p>
+</li>
+<li>
+<p>随便，长度吧（那还是用双指针吧&hellip;.额，滑动窗口，就用得到的当前最大长度去匹配子串）</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>个人：</strong></p>
+<ul>
+<li>你本科是电气工程，怎么会想到做算法（我本科全称是电气工程与智能控制，专业主课是智能控制，那门课上就学了 BP、神经网络、遗传、退火、蚁群这种比较久远的机器学习算法，那个时候用的是 Matlab）</li>
+<li>你觉得自己学习能力如何？（我觉得挺好的吧，就打个比方，我大一的时候刚当文宣委员，那个时候以为 PS 和 Photoshop 是两个东西，班上要求搞个海报，我一个晚上安装加学习ps，硬是把海报做出来了）</li>
+<li>最近有做什么项目吗？（emm&hellip;有学 Qt 想试着实现一下到端部署的软件）</li>
+</ul>
+</li>
+<li>
+<p><strong>反问阶段：</strong></p>
+<ul>
+<li>还有什么想问的吗？（你们公司的氛围如何，emm，技术氛围？）</li>
+<li>30人，挺好的，分工明确，各司其职，算法研发、数据开发、BI啊之类都有（哦，那数据开发具体是干什么，我现在还是有点模糊）</li>
+<li>就简单的数据分析加上部署吧（部署这一块我不大懂，公司是什么情况，是用 Linux 在自己公司部署吗？还是客户的电脑上？）</li>
+<li>我们公司有自己的系统，直接后台部署就行了（哦，那意思就是你们部门不需要出差是吧？）</li>
+<li>对（哦，那好）</li>
+</ul>
+<hr>
+<p>**总结：**太久没面试了，而且也几乎放弃算法这块了，在学后端，很多地方都记得很模糊，音都紧张地变尖了</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

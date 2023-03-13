@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我的面经 · 算法 本人面经之 算法 分栏，后续补充。
+投递经验（无反应的没写上去） 百度 NLP 补录（2020，暴毙） 博彦科技（投的时候不知道是外包，问了句就没理我了） 软通（外包，要现场面，拒绝） 杭州华为OD（凉） 每日互动（在面） 机器学习（Machine Learning） 资料 E:\资料\计算机\软件\ML E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\机器学习测试题.pdf 网站 AI Studio ApacheCN 极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ） 深度之眼 王的机器 参考书（纸书、电子书） 百面机器学习 机器学习 - 周志华 统计学习方法2 - 李航 知识点 招聘常见要求
+HMM CRF SVM LR DT BOOST K-MEANS GBT TensorFlow / Pytorch / Keras 问题 预测评估 精确率/查准率（Precision）、准确率（Accuracy）和召回率/查全率（Recall）？https://www.zhihu.com/question/19645541 Precision：你觉得的阳性里头，对了多少（真阳/猜阳） Accuracy：有多少判断正确（猜对/全体） Recall：正样本猜对多少（真阳/正样本） 推荐理解方法： Google 机器学习线图 知乎 饼图 原创：脑内模拟 Excel 筛法 想象一堆数据，最右边两列分别是——label、predict Precision 即筛出 predict 的 1，看其中 1-1 的占比 Accuracy 即看整表，看其中 1-1 和 0-0 的占比 Recall 即筛出 label 的 1，看其中 1-1 的占比 机器学习性能评估指标？ROC曲线，PR曲线，AUC等。http://charleshm.'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/4-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='我的面经 · 算法 本人面经之 算法 分栏，后续补充。
+投递经验（无反应的没写上去） 百度 NLP 补录（2020，暴毙） 博彦科技（投的时候不知道是外包，问了句就没理我了） 软通（外包，要现场面，拒绝） 杭州华为OD（凉） 每日互动（在面） 机器学习（Machine Learning） 资料 E:\资料\计算机\软件\ML E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\机器学习测试题.pdf 网站 AI Studio ApacheCN 极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ） 深度之眼 王的机器 参考书（纸书、电子书） 百面机器学习 机器学习 - 周志华 统计学习方法2 - 李航 知识点 招聘常见要求
+HMM CRF SVM LR DT BOOST K-MEANS GBT TensorFlow / Pytorch / Keras 问题 预测评估 精确率/查准率（Precision）、准确率（Accuracy）和召回率/查全率（Recall）？https://www.zhihu.com/question/19645541 Precision：你觉得的阳性里头，对了多少（真阳/猜阳） Accuracy：有多少判断正确（猜对/全体） Recall：正样本猜对多少（真阳/正样本） 推荐理解方法： Google 机器学习线图 知乎 饼图 原创：脑内模拟 Excel 筛法 想象一堆数据，最右边两列分别是——label、predict Precision 即筛出 predict 的 1，看其中 1-1 的占比 Accuracy 即看整表，看其中 1-1 和 0-0 的占比 Recall 即筛出 label 的 1，看其中 1-1 的占比 机器学习性能评估指标？ROC曲线，PR曲线，AUC等。http://charleshm.'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/4-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="我的面经 · 算法 本人面经之 算法 分栏，后续补充。
+投递经验（无反应的没写上去） 百度 NLP 补录（2020，暴毙） 博彦科技（投的时候不知道是外包，问了句就没理我了） 软通（外包，要现场面，拒绝） 杭州华为OD（凉） 每日互动（在面） 机器学习（Machine Learning） 资料 E:\资料\计算机\软件\ML E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\机器学习测试题.pdf 网站 AI Studio ApacheCN 极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ） 深度之眼 王的机器 参考书（纸书、电子书） 百面机器学习 机器学习 - 周志华 统计学习方法2 - 李航 知识点 招聘常见要求
+HMM CRF SVM LR DT BOOST K-MEANS GBT TensorFlow / Pytorch / Keras 问题 预测评估 精确率/查准率（Precision）、准确率（Accuracy）和召回率/查全率（Recall）？https://www.zhihu.com/question/19645541 Precision：你觉得的阳性里头，对了多少（真阳/猜阳） Accuracy：有多少判断正确（猜对/全体） Recall：正样本猜对多少（真阳/正样本） 推荐理解方法： Google 机器学习线图 知乎 饼图 原创：脑内模拟 Excel 筛法 想象一堆数据，最右边两列分别是——label、predict Precision 即筛出 predict 的 1，看其中 1-1 的占比 Accuracy 即看整表，看其中 1-1 和 0-0 的占比 Recall 即筛出 label 的 1，看其中 1-1 的占比 机器学习性能评估指标？ROC曲线，PR曲线，AUC等。http://charleshm.">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/4-0-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E7%AE%97%E6%B3%95/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="我的面经--算法">我的面经 · 算法</h1>
+<p>本人面经之 <strong>算法</strong> 分栏，后续补充。</p>
+<h1 id="投递经验无反应的没写上去">投递经验（无反应的没写上去）</h1>
+<ol>
+<li>百度 NLP 补录（2020，暴毙）</li>
+<li>博彦科技（投的时候不知道是外包，问了句就没理我了）</li>
+<li>软通（外包，要现场面，拒绝）</li>
+<li>杭州华为OD（凉）</li>
+<li>每日互动（在面）</li>
+</ol>
+<h1 id="机器学习machine-learning">机器学习（Machine Learning）</h1>
+<h2 id="资料">资料</h2>
+<ul>
+<li>E:\资料\计算机\软件\ML</li>
+<li>E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\机器学习测试题.pdf</li>
+<li>网站
+<ul>
+<li>AI Studio</li>
+<li>ApacheCN</li>
+<li>极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ）</li>
+<li>深度之眼</li>
+<li><a class="link" href="https://mp.weixin.qq.com/mp/homepage?__biz=MzIzMjY0MjE1MA==&amp;hid=6&amp;sn=d350f682d7c1d07153ff26ad3d572219&amp;scene=1&amp;devicetype=android-28&amp;version=27000c35&amp;lang=en&amp;nettype=WIFI&amp;ascene=7&amp;session_us=gh_86283b3f44d0&amp;wx_header=1"  target="_blank" rel="noopener"
+    >王的机器</a></li>
+</ul>
+</li>
+<li>参考书（纸书、电子书）
+<ul>
+<li>百面机器学习</li>
+<li>机器学习 - 周志华</li>
+<li>统计学习方法2 - 李航</li>
+</ul>
+</li>
+</ul>
+<h2 id="知识点"><strong>知识点</strong></h2>
+<p>招聘常见要求</p>
+<ul>
+<li>HMM</li>
+<li>CRF</li>
+<li>SVM</li>
+<li>LR</li>
+<li>DT</li>
+<li>BOOST</li>
+<li>K-MEANS</li>
+<li>GBT</li>
+<li>TensorFlow / Pytorch / Keras</li>
+</ul>
+<h2 id="问题"><strong>问题</strong></h2>
+<h3 id="预测评估">预测评估</h3>
+<ul>
+<li>精确率/查准率（Precision）、准确率（Accuracy）和召回率/查全率（Recall）？https://www.zhihu.com/question/19645541
+<ul>
+<li>Precision：你觉得的阳性里头，对了多少（真阳/猜阳）</li>
+<li>Accuracy：有多少判断正确（猜对/全体）</li>
+<li>Recall：正样本猜对多少（真阳/正样本）</li>
+<li>推荐理解方法：
+<ul>
+<li>Google 机器学习线图</li>
+<li>知乎 饼图</li>
+<li>原创：脑内模拟 Excel 筛法
+<ul>
+<li>想象一堆数据，最右边两列分别是——label、predict</li>
+<li>Precision 即筛出 predict 的 1，看其中 1-1 的占比</li>
+<li>Accuracy 即看整表，看其中 1-1 和 0-0 的占比</li>
+<li>Recall 即筛出 label 的 1，看其中 1-1 的占比</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>机器学习性能评估指标？ROC曲线，PR曲线，AUC等。http://charleshm.github.io/2016/03/Model-Performance/</li>
+<li>宏平均：先求每个分类准确率，再求平均 <a class="link" href="https://blog.csdn.net/weixin_42864175/article/details/90521758"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/weixin_42864175/article/details/90521758</a></li>
+<li>微平均：直接求准确率</li>
+</ul>
+<h3 id="pipeline">Pipeline</h3>
+<p>Pipeline（摘自深度之眼NLP工具库）</p>
+<ul>
+<li><figure 
+	>
+	<a href="/E:%5c%e8%b5%84%e6%96%99%5c%e8%ae%a1%e7%ae%97%e6%9c%ba%5c%e8%bd%af%e4%bb%b6%5cNLP%5c%e6%b7%b1%e5%ba%a6%e4%b9%8b%e7%9c%bcNLP%e5%b7%a5%e5%85%b7%e5%ba%93%5cplay-nlp%5cimages%5c%e6%96%87%e6%9c%ac%e5%88%86%e7%b1%bbpipeline.png" >
+		<img src="/E:%5c%e8%b5%84%e6%96%99%5c%e8%ae%a1%e7%ae%97%e6%9c%ba%5c%e8%bd%af%e4%bb%b6%5cNLP%5c%e6%b7%b1%e5%ba%a6%e4%b9%8b%e7%9c%bcNLP%e5%b7%a5%e5%85%b7%e5%ba%93%5cplay-nlp%5cimages%5c%e6%96%87%e6%9c%ac%e5%88%86%e7%b1%bbpipeline.png"
+			
+			
+			
+			loading="lazy"
+			alt="文本分类pipeline">
+	</a>
+	
+	<figcaption>文本分类pipeline</figcaption>
+	
+</figure></li>
+</ul>
+<p>每个步骤概览：</p>
+<ol>
+<li><strong>数据预处理</strong>：
+<ul>
+<li>你的数据可能比较脏，比如带html标签、不合法的数据，你需要去除；</li>
+<li>你的文本数据可能需要分词，然后再去掉一些停用词（<code>的</code> <code>了</code>等）及标点；</li>
+</ul>
+</li>
+<li><strong>特征构造</strong>：
+<ul>
+<li>一般情况我们会使用<code>词特征</code>作为文本分类的特征</li>
+<li>你还可以增加其它人为定义的特征，比如：文本长度、n-gram特征（将连续的n个词当成一个词特征）等</li>
+</ul>
+</li>
+<li><strong>特征选择</strong>：
+<ul>
+<li>用词做特征，不做特征选择，很容易出现上万维、甚至几十万维， 这对计算来说可能是个灾难。即使计算资源充足，那也是对资源的浪费，因为真正对分类起作用的词，可能就只是一少部分；</li>
+<li>经常使用卡方检验、互信息等指标筛选1000~5000维的特征；</li>
+</ul>
+</li>
+<li><strong>权重计算</strong>：
+<ul>
+<li>使用了词特征，还有一个重要的点就是如何为每个特征赋值，常见的权重有：TF（词频）、TFIDF（词频 * 倒排文档频率）</li>
+<li>至此，我们得到了<strong>样本特征矩阵</strong>；</li>
+</ul>
+</li>
+<li><strong>归一化</strong>：
+<ul>
+<li>在实践中，我们往往需要对连续的特征进行标准化和归一化。即让不同特征的取值范围差别不能过大；</li>
+<li>标准化和归一化可以：加快模型训练收敛速度、可能会提高模型精度；</li>
+<li>对于离散的特征，我们需要使用OneHot进行编码；</li>
+</ul>
+</li>
+<li><strong>数据集划分</strong>：
+<ul>
+<li>我们往往需要使用留出法或者交叉验证法，对数据进行训练集、验证集、测试集的划分</li>
+<li>训练集用来训练模型、验证集用来调参、测试集用来评估模型泛化效果；</li>
+</ul>
+</li>
+<li><strong>训练分类模型</strong>：
+<ul>
+<li>特征矩阵已经就绪，接下来，就是要选择一个分类模型，比如：SVM或LR或者集成模型RF，然后训练模型；</li>
+</ul>
+</li>
+<li><strong>模型评估</strong>：
+<ul>
+<li>如何衡量模型的好坏呢？我们自然想到精度（acc）：对是对，错是错，对的样本数 / 整个样本数 ；</li>
+<li>对于类别分布不怎么均匀的情况，精度并不怎么靠谱，理想的指标是：准确率（准不准）、召回率（全不全） 以及 F1（两者的折中）；</li>
+</ul>
+</li>
+<li><strong>参数搜索</strong>：
+<ul>
+<li>有了指标后，一个分类模型可能有几十个参数，我们该如何选择某个特定的参数组合，使得此时的模型效果最好呢？</li>
+<li>可以使用网格搜索，在限定的参数空间内进行调参；也可以使用随机搜索，每次随机选择特定参数组合，然后取n次里面最好的参数组合；</li>
+</ul>
+</li>
+<li><strong>保存模型</strong>：
+<ul>
+<li>选择了最优参数的模型，我们需要将其保存下来，以供后续加载使用；</li>
+<li>可以用Python的pickle库持久化模型对象；</li>
+</ul>
+</li>
+<li><strong>预测</strong>：
+<ul>
+<li>你可以加载上一步保存的模型，对新的数据进行离线label预测；</li>
+<li>你还可以将已加载的模型预测功能封装成HTTP服务，提供即时预测功能；</li>
+</ul>
+</li>
+</ol>
+<h3 id="one-hot">One-hot</h3>
+<p>One-Hot编码将离散特征转换为机器学习算法易于利用的一种形式，因为：</p>
+<ul>
+<li><strong>很多机器学习模型假设所有特征的取值是连续的</strong>，即它们之间具有可比较的大小关系。比如对于：特征词&quot;开心&quot;，在文档3出现4次、在文档1出现0次，是可以被拿来比较的；</li>
+<li><strong>离散特征并不具备大小可比的关系</strong>，你强行将 <code>'知乎'</code> <code>'微博'</code> <code>'天涯'</code> 变成id形式的 <code>1</code> <code>2</code> <code>3</code> 输入模型，会误导模型；</li>
+<li><strong>离散特征经过One-hot后，便具备了连续特征的可比较关系</strong>；</li>
+</ul>
+<h3 id="embedding">Embedding</h3>
+<h3 id="word2vec">Word2Vec</h3>
+<p><a class="link" href="https://blog.csdn.net/qq_35268841/article/details/107065297"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_35268841/article/details/107065297</a></p>
+<h3 id="标准化和归一化">标准化和归一化</h3>
+<p>标准化和归一化让不同特征的取值差别不过大</p>
+<ul>
+<li>加快模型训练收敛速度
+<ul>
+<li>如不归一化，梯度迭代时可能会偏离最小值的方向，走很多弯路，即训练时间变长</li>
+<li>归一化后目标函数会变圆</li>
+</ul>
+</li>
+<li>可能会提高模型精度
+<ul>
+<li>特征之间较大的尺度差异会误导模型，降低模型精度</li>
+</ul>
+</li>
+<li>标准化：$X_{norm}=\frac{X-X_{mean}}{X_{std}}$</li>
+<li>最大最小值归一化（相对最大绝对值归一化更常用）：$X_{norm}=\frac{X-X_{min}}{X_{max}-X_{min}}$</li>
+<li>最大绝对值归一化：$X_{norm}=\frac{X}{|X_{max}|}$</li>
+<li>对比
+<ul>
+<li>相比最大绝对值归一化，<strong>最小最大值归一化</strong>更常用些；</li>
+<li>使用归一化来缩放数据，则<strong>数据将更集中在均值附近</strong>，这是由于归一化的缩放是“拍扁”统一到区间（仅由极值决定）；</li>
+<li>标准化的缩放是更加“弹性”和“动态”的，因为它<strong>保留了样本的特征值分布情况</strong>；</li>
+<li>所以<strong>归一化不能很好地处理离群值，而标准化对异常值的鲁棒性强</strong>，在许多情况下，标准化优于归一化；</li>
+</ul>
+</li>
+</ul>
+<h3 id="词袋模型和tfidf">词袋模型和TFIDF</h3>
+<p><strong>词袋模型</strong>忽略掉文本的语法和语序等要素，<strong>将一个文本看作是若干个词汇的集合，文档中每个单词的出现都是独立的</strong>。</p>
+<ul>
+<li><strong>可以使用ngram捕获局部词序</strong></li>
+</ul>
+<p>用词袋法表示的权重矩阵，是通过词频来表示的。在实践中，我们的<strong>权重矩阵往往是通过tfidf来计算的</strong>，它在词频的基础上，还考虑了文档频率。<strong>tfidf是一种非常普遍、有效的权重计算方式</strong>。公式如下：
+$$
+TFIDF = TF \cdot IDF
+$$</p>
+<ul>
+<li><strong>TF</strong>：词频(term frequency)，它展示了<strong>文档中每个词出现的频率，频率越高，就越重要</strong>。$n$ 表示某个词在文档中出现的次数，$N$ 表示文档中所有词出现的次数总和，这是一个归一化的过程，目的是消除文档篇幅长短上的差异。公式如下：</li>
+</ul>
+<p>$$
+TF = \frac {n}{N}
+$$</p>
+<ul>
+<li><strong>IDF</strong>：逆文档频率(inverse document frequency)，它展示了<strong>某个词在所有文档中出现的频率，文档频率越低，即逆文档频率越高，则词越重要</strong>；$D$ 表示语料中所有的文档总数，$d$ 表示语料中出现某个词的文档数量，公式中的是 1 为了防止分母为 0 的情况（加不加 1 即是否平滑），$log$ 是以 $10$ 为底的对数；IDF值计算公式如下：</li>
+</ul>
+<p>$$
+IDF = log[\frac{D}{1+d}]
+$$</p>
+<p>总之，TFIDF的意思是说：<strong>词的重要性，随着 在一个文档中出现的次数增多 而变大，随着 在所有文档中的出现次数增加 而变小</strong>；</p>
+<h3 id="c-bow-和-skip-gram">C-BOW 和 Skip-gram</h3>
+<ul>
+<li>C-BOW（拿上下文预测中心词，更快更好），exp变换，为了保证正数且单调</li>
+<li>Skip-gram（拿中心词预测上下文，生僻字有优势）
+<ul>
+<li>1相关，0不相关（注意负采样，比如说菠萝、石油）</li>
+<li>问题：要处理大矩阵乘法，速度慢，消耗内存多</li>
+</ul>
+</li>
+<li>可以看 莫烦 PYTHON</li>
+</ul>
+<h3 id="hhm">HHM</h3>
+<p>隐马尔可夫模型（核心即 p(x, y) 和 三元组 (π, A, B)），三个用途：</p>
+<ul>
+<li>样本生成，(π, A, B) -&gt; x, y</li>
+<li>模型训练，x, y -&gt; (π, A, B)</li>
+<li>序列预测，(π, A, B) , x -&gt; y</li>
+</ul>
+<h3 id="sigmoid-和-softmax-的区别">sigmoid 和 softmax 的区别</h3>
+<p><a class="link" href="https://baijiahao.baidu.com/s?id=1636737136973859154&amp;wfr=spider&amp;for=pc"  target="_blank" rel="noopener"
+    >https://baijiahao.baidu.com/s?id=1636737136973859154&wfr=spider&for=pc</a></p>
+<ul>
+<li>Sigmoid =多标签分类问题=多个正确答案=非独占输出（例如胸部X光检查、住院）</li>
+<li>Softmax =多类别分类问题=只有一个正确答案=互斥输出（例如手写数字，鸢尾花）</li>
+</ul>
+<h3 id="relu-及其变种">ReLU 及其变种</h3>
+<p>除了ReLU（线性整流函数，Rectified Linear Unit，又称修正线性单元）外，还存在Leaky ReLU、PReLU、RReLU 和 BReLU 等激活函数</p>
+<p><a class="link" href="https://cloud.tencent.com/developer/article/1597479"  target="_blank" rel="noopener"
+    >https://cloud.tencent.com/developer/article/1597479</a></p>
+<h3 id="优化器的选择">优化器的选择</h3>
+<ul>
+<li>SGD（适合CV）</li>
+<li>SGD + Momentum</li>
+<li>Adagrad</li>
+<li>Adam（适合NLP，或者用AdamW）</li>
+</ul>
+<h3 id="梯度爆炸和梯度消失">梯度爆炸和梯度消失</h3>
+<ul>
+<li>梯度爆炸：给一个上限</li>
+<li>梯度消失：改变初始值，或改变步长</li>
+</ul>
+<h3 id="知识蒸馏">知识蒸馏</h3>
+<p>用大模型训练小模型，是迁移学习的特例</p>
+<h3 id="k-means">K-means</h3>
+<p>肘部法则分层</p>
+<h3 id="聚类">聚类</h3>
+<p>最近两点不断聚类 设定最高值</p>
+<h3 id="pca">PCA</h3>
+<p>无监督降维，投影到特征向量（主成分）上，而特征值代表数据投影后的方差大小。（选较大的特征值的特征向量，投影）
+$$
+\Sigma=\begin{bmatrix}X轴上方差&amp;X和Y协方差\X和Y协方差&amp;Y\end{bmatrix}
+$$</p>
+<h3 id="dropout">Dropout</h3>
+<p>分测试阶段和训练阶段，测试阶段要乘以保留的概率值，以保证输出与期望的基本一致。</p>
+<p><a class="link" href="https://www.zhihu.com/question/402485242"  target="_blank" rel="noopener"
+    >https://www.zhihu.com/question/402485242</a></p>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/38200980"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/38200980</a></p>
+<h3 id="相似度">相似度</h3>
+<p>$$
+\begin{align}
+余弦距离&amp;=\frac{向量 1和向量 2的内积}{向量1的长度\times向量2的长度}\
+\end{align}
+$$</p>
+<h3 id="交叉熵散度">交叉熵、散度</h3>
+<p><strong>正规定义：<strong>使用专门为另一个分布制作的密码表来发送某个分布中事件的信息，此时信息的平均编码长度定义为</strong>交叉熵（cross-entropy）。</strong></p>
+<p>两个数据分布分别为 p 分布和 q 分布的话，则 p 分布对 q 分布的交叉熵公式如下：
+$$
+H_p(q)=\sum\limits_{x}q(x)\times\log_2(\frac{1}{p(x)})
+$$
+而 q 分布对 p 分布的交叉熵公式如下：
+$$
+H_q(p)=\sum\limits_{x}p(x)\times\log_2(\frac{1}{q(x)})
+$$
+**Kullback-Leibler 散度（KL 散度）**是熵与交叉熵之间的差值。称之为散度而不是距离是因为距离是对称的，而散度可以是不对称的。</p>
+<p>p 分布对 q 分布的 KL 散度定义为：
+$$
+KL_p(q)=H_p(q)-H(q)=\sum\limits_{x}q(x)\times\log_2(\frac{q(x)}{p(x)})
+$$
+而 q 分布对 p 分布的 KL 散度定义为：
+$$
+KL_q(p)=H_p(p)-H(p)=\sum\limits_{x}p(x)\times\log_2(\frac{p(x)}{q(x)})
+$$
+上面的 log~2~ xxx 其实是描述两种分布编码的长度差异。分布 p 和 q 差别越大，那么之间的 KL 散度（两个都越大）也就越大。</p>
+<p><strong>交叉熵</strong>，即使用针对另一分布制作的密码表对某个分布内的事件进行通讯时的长度，其组成分为两部分:</p>
+<ol>
+<li>使用针对本分布密码表进行通讯时所需的最短平均编码长度，即<strong>熵</strong></li>
+<li>因使用针对其他分布的密码表而导致的多出的部分，即 <strong>KL 散度</strong></li>
+</ol>
+<p>数学表达式如下：
+$$
+交叉熵_p(q) =熵(q)+散度_p(q)\
+交叉熵_q(p) =熵(p) +散度_q(p)
+$$
+<figure 
+	>
+	<a href="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210308220408231.png" >
+		<img src="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210308220408231.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210308220408231">
+	</a>
+	
+	<figcaption>image-20210308220408231</figcaption>
+	
+</figure></p>
+<h3 id="trade-off取舍">Trade-off（取舍）</h3>
+<p><a class="link" href="https://mp.weixin.qq.com/s/OZ2xuLQSpgS5T6RiRqw8uw"  target="_blank" rel="noopener"
+    >https://mp.weixin.qq.com/s/OZ2xuLQSpgS5T6RiRqw8uw</a></p>
+<h3 id="集成学习">集成学习</h3>
+<p>Bagging：弱依赖，并行，如随机森林</p>
+<p>Boosting：强依赖，串行，如 AdaBoost、GBDT</p>
+<p>集成学习应<strong>好而不同</strong>，Bagging更关注不同，Boosting更关注好。</p>
+<h3 id="开课吧算法面试题">开课吧算法面试题</h3>
+<ul>
+<li>
+<p>E:\资料\计算机\软件\算法\面试题.pdf</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 全概率公式和贝叶斯公式。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 模型训练为何引入偏差（bias）和方差（variance）？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 介绍一下 CRF/朴素贝叶斯/EM/最大熵模型/马尔可夫随机场/混合高斯模型 。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 如何解决过拟合问题？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> One-hot 的作用是什么？为什么不直接使用数字作为表示？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 决策树和随机森林的区别是什么？</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox"> 朴素贝叶斯为什么朴素（Naive）？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> kmeans 初始点除了随机选取之外还有什么方法？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> LR 明明是分类模型为什么叫回归？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 梯度下降如何并行化？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> LR 中的 L1/L2 正则项是什么？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 简述决策树构建的过程。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 解释 Gini 系数。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 决策树的优缺点。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 出现估计概率值为 0 怎么处理？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 随机森林的生成过程。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 介绍一下 Boosting 的思想。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> GBDT 中的 Tree 是什么 Tree？有什么特征？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> XGBoost 对比 GBDT/Boosting Tree 有了哪些方面的优化？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 什么叫最优化超平面？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 什么是支持向量？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> SVM 如何解决多分类问题？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 核函数的作用是什么？</p>
+</li>
+</ul>
+<h3 id="面试题库">面试题库</h3>
+<ul>
+<li>E:\资料\计算机\软件\AI\学习大礼包\面试题库.pdf</li>
+</ul>
+<h3 id="牛客算法工程师面试题库">牛客算法工程师面试题库</h3>
+<ul>
+<li>E:\资料\计算机\软件\AI\AI_ibooker群文件\面试刷题\机器学习算法工程师面试题库.pdf</li>
+</ul>
+<h1 id="特征工程feature-engineering">特征工程（Feature Engineering）</h1>
+<h2 id="资料-1">资料</h2>
+<ul>
+<li>参考书（纸书、电子书）</li>
+<li>E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\特征工程测试题.pdf</li>
+</ul>
+<h2 id="知识点-1"><strong>知识点</strong></h2>
+<ul>
+<li>Pandas</li>
+<li>PCA</li>
+<li>LDA</li>
+</ul>
+<h2 id="问题-1"><strong>问题</strong></h2>
+<ul>
+<li>
+<p>数据清洗（插值法等）</p>
+</li>
+<li>
+<p>数据增强</p>
+</li>
+</ul>
+<h2 id="开课吧算法面试-pdf-题目">开课吧算法面试 pdf 题目</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 怎么去除 DataFrame 里的缺失值？</li>
+<li><input disabled="" type="checkbox"> 特征无量纲化的常见操作方法？</li>
+<li><input disabled="" type="checkbox"> 如何对类别变量进行独热编码？</li>
+<li><input disabled="" type="checkbox"> 如何把”年龄“字段按照我们的阈值分段？</li>
+<li><input disabled="" type="checkbox"> 如何根据变量相关性画出热力图？</li>
+<li><input disabled="" type="checkbox"> 如何把分布修正为类正态分布？</li>
+<li><input disabled="" type="checkbox"> 怎么简单使用 PCA 来划分数据且可视化呢？</li>
+<li><input disabled="" type="checkbox"> 怎么简单使用 LDA 来划分数据且可视化呢？</li>
+</ul>
+<h1 id="深度学习deep-learning">深度学习（Deep Learning）</h1>
+<h2 id="资料-2">资料</h2>
+<ul>
+<li>E:\资料\计算机\软件\DL</li>
+<li>E:\资料\计算机\软件\NLP\极客时间NLP训练营\机器学习面试100题\深度学习测试题.pdf</li>
+<li>网站
+<ul>
+<li>AI Studio</li>
+<li>ApacheCN</li>
+<li>极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ）</li>
+<li>深度之眼</li>
+</ul>
+</li>
+<li>参考书（纸书、电子书）
+<ul>
+<li>百面深度学习</li>
+<li>百度 PaddlePaddle</li>
+</ul>
+</li>
+</ul>
+<h2 id="知识点-2"><strong>知识点</strong></h2>
+<p>招聘常见要求</p>
+<ul>
+<li>CNN</li>
+<li>RNN、LSTM</li>
+</ul>
+<h2 id="问题-2"><strong>问题</strong></h2>
+<h3 id="网络">网络</h3>
+<p><a class="link" href="https://mp.weixin.qq.com/s?__biz=MzIzMjY0MjE1MA==&amp;mid=2247488290&amp;idx=1&amp;sn=427aee1a0afaf4c4f34b6d451de8bd3d&amp;scene=19#wechat_redirect"  target="_blank" rel="noopener"
+    >RNN神经网络</a>中 O ——&gt; O 中，箭头意味着使用了变化（即乘了个矩阵）</p>
+<h2 id="开课吧算法面试-pdf-题目-1">开课吧算法面试 pdf 题目</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 你觉得 batch-normalization 过程是怎样的？</li>
+<li><input disabled="" type="checkbox"> 激活函数有什么用？常见的激活函数的区别是什么？</li>
+<li><input disabled="" type="checkbox"> Softmax 的原理是什么？有什么作用？</li>
+<li><input disabled="" type="checkbox"> CNN 的平移不变性是什么？如何实现的？</li>
+<li><input disabled="" type="checkbox"> AlexNet、VGG、GoogleNet、ResNet 等网络之间的区别是？</li>
+<li><input disabled="" type="checkbox"> 残差网络为什么能解决梯度消失的问题？</li>
+<li><input disabled="" type="checkbox"> LSTM 为什么能解决梯度消失/爆炸的问题？</li>
+<li><input disabled="" type="checkbox"> Attention 对比 RNN 和 CNN，分别有哪些点你觉得的优势？</li>
+<li><input disabled="" type="checkbox"> 写出 Attention 的公式。</li>
+<li><input disabled="" type="checkbox"> Attention 机制中的 q、k、v 分别代表什么？</li>
+<li><input disabled="" type="checkbox"> 为什么 self-attention 可以代替 seq2seq？</li>
+</ul>
+<h1 id="自然语言处理natural-language-processing">自然语言处理（Natural Language Processing）</h1>
+<h2 id="资料-3">资料</h2>
+<ul>
+<li>E:\资料\计算机\软件\NLP</li>
+<li>网站
+<ul>
+<li>AI Studio</li>
+<li>ApacheCN</li>
+<li>极客时间（笔记：https://shimo.im/folder/gPjYtx9DJQW63gpQ）</li>
+<li>深度之眼</li>
+</ul>
+</li>
+<li>参考书（纸书、电子书）</li>
+<li>花书</li>
+</ul>
+<h2 id="知识点-3"><strong>知识点</strong></h2>
+<p>招聘常见要求</p>
+<ul>
+<li>
+<p>预处理</p>
+<ul>
+<li>分词</li>
+<li>关键词提取</li>
+<li>停止词</li>
+</ul>
+</li>
+<li>
+<p>词向量</p>
+<ul>
+<li>One-hot</li>
+<li>Word2vec</li>
+<li>词袋</li>
+<li>embedding</li>
+<li>fasttext</li>
+<li>glove</li>
+<li>ELMO</li>
+</ul>
+</li>
+<li>
+<p>TF-IDF</p>
+</li>
+<li>
+<p>LSTM</p>
+</li>
+<li>
+<p>Transformer</p>
+</li>
+<li>
+<p>Attention</p>
+</li>
+<li>
+<p>Bert</p>
+</li>
+<li>
+<p>知识图谱 <a class="link" href="https://mp.weixin.qq.com/s/9Zg3YMbFAfVAQFh7m1Tn7A"  target="_blank" rel="noopener"
+    >https://mp.weixin.qq.com/s/9Zg3YMbFAfVAQFh7m1Tn7A</a></p>
+</li>
+<li>
+<p>关系抽取</p>
+<ul>
+<li>
+<p><a class="link" href="https://blog.csdn.net/qq_35268841/article/details/107063066"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_35268841/article/details/107063066</a></p>
+</li>
+<li>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/237452918"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/237452918</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>文本分类</p>
+</li>
+<li>
+<p>语义分析</p>
+</li>
+<li>
+<p>对话系统</p>
+</li>
+<li>
+<p>序列问题</p>
+<ul>
+<li>分词</li>
+<li>词性标注</li>
+<li>命名实体识别</li>
+<li>依存句法分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="问题-3"><strong>问题</strong></h2>
+<ul>
+<li>pointwise（以样本为单位，分类型）pairwise（判断相关性，比较型）</li>
+<li>LSTM：https://www.jianshu.com/p/4b4701beba92</li>
+</ul>
+<h2 id="开课吧算法面试-pdf-题目-2">开课吧算法面试 pdf 题目</h2>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> 解释 GolVe 的损失函数。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 为什么 GolVe 会用的相对比 Word2vec 少？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 层次 Softmax 流程？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 负采样流程？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 怎样衡量学到的 embedding 的好坏？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 阐述 CRF 原理。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 详述 LDA 原理。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> LDA 中的主题矩阵如何计算？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 马尔科夫链的收敛性质？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> MCMC 中什么叫做马尔科夫链采样过程？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 给定平稳矩阵如何得到概率分布样本集？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 什么叫做坐标转换采样？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 变分推断 EM 算法？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> Bert 的双向体现在什么地方？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> Bert 是怎样预训练的？</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 手写一个 multi-head attention。</p>
+</li>
+</ul>
+<h1 id="推荐系统recommendation-system">推荐系统（Recommendation System）</h1>
+<h2 id="资料-4">资料</h2>
+<ul>
+<li>E:\资料\计算机\软件\DL</li>
+</ul>
+<h2 id="知识点-4"><strong>知识点</strong></h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="问题-4"><strong>问题</strong></h2>
+<h2 id="开课吧算法面试-pdf-题目-3">开课吧算法面试 pdf 题目</h2>
+<ul>
+<li><input disabled="" type="checkbox"> DNN 与 DeepFM 之间的区别？</li>
+<li><input disabled="" type="checkbox"> 你在使用 DeepFM 时是如何处理欠拟合和过拟合问题的？</li>
+<li><input disabled="" type="checkbox"> DeepFM 的 embedding 初始化有什么值得注意的地方吗？</li>
+<li><input disabled="" type="checkbox"> YoutubeNet 变长数据如何处理的？</li>
+<li><input disabled="" type="checkbox"> YoutubeNet 如何避免百万量级的 softmax 问题的？</li>
+<li><input disabled="" type="checkbox"> 推荐系统有哪些常见的评测指标？</li>
+<li><input disabled="" type="checkbox"> MLR 的原理是什么？做了哪些优化？</li>
+</ul>
+<h1 id="计算机视觉computer-vision">计算机视觉（Computer Vision）</h1>
+<h2 id="资料-5">资料</h2>
+<ul>
+<li>E:\资料\计算机\软件\DL</li>
+</ul>
+<h2 id="知识点-5"><strong>知识点</strong></h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="问题-5"><strong>问题</strong></h2>
+<h2 id="开课吧算法面试-pdf-题目-4">开课吧算法面试 pdf 题目</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 常见的模型加速方法？</li>
+<li><input disabled="" type="checkbox"> 目标检测中如何有效解决常见的前景少背景多的问题？</li>
+<li><input disabled="" type="checkbox"> 目标检测里有什么情况是 SSD、YoLov3、Faster R-CNN 等不能解决的？假设网络拟合能力无限强。</li>
+<li><input disabled="" type="checkbox"> ROIPool 和 ROIAlign 的区别？</li>
+<li><input disabled="" type="checkbox"> 介绍常见的梯度下降优化方法。</li>
+<li><input disabled="" type="checkbox"> Detection 你觉得还有哪些可做的点？</li>
+<li><input disabled="" type="checkbox"> mini-Batch SGD 相对于 GD 有什么优点？</li>
+<li><input disabled="" type="checkbox"> 人体姿态估计的两个主流做法是啥？简单介绍下。</li>
+<li><input disabled="" type="checkbox"> 卷积的实现原理以及如何快速高效实现局部 weight sharing 的卷积操作方式？</li>
+<li><input disabled="" type="checkbox"> Cycle CAN 的生成效果为何一般都是位置不变，纹理变化，为什么不能产生不同位置的生成效果？</li>
+</ul>
+<h1 id="数学">数学</h1>
+<h2 id="资料-6">资料</h2>
+<ul>
+<li>E:\资料\数学</li>
+<li>普林斯顿三剑客</li>
+<li>程序员的数学三件套</li>
+<li>统计：https://www.zhihu.com/people/michael-song-20/zvideos</li>
+</ul>
+<h2 id="知识点-6"><strong>知识点</strong></h2>
+<ul>
+<li></li>
+</ul>
+<h2 id="问题-6"><strong>问题</strong></h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#资料">资料</a></li>
+    <li><a href="#知识点"><strong>知识点</strong></a></li>
+    <li><a href="#问题"><strong>问题</strong></a>
+      <ul>
+        <li><a href="#预测评估">预测评估</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#one-hot">One-hot</a></li>
+        <li><a href="#embedding">Embedding</a></li>
+        <li><a href="#word2vec">Word2Vec</a></li>
+        <li><a href="#标准化和归一化">标准化和归一化</a></li>
+        <li><a href="#词袋模型和tfidf">词袋模型和TFIDF</a></li>
+        <li><a href="#c-bow-和-skip-gram">C-BOW 和 Skip-gram</a></li>
+        <li><a href="#hhm">HHM</a></li>
+        <li><a href="#sigmoid-和-softmax-的区别">sigmoid 和 softmax 的区别</a></li>
+        <li><a href="#relu-及其变种">ReLU 及其变种</a></li>
+        <li><a href="#优化器的选择">优化器的选择</a></li>
+        <li><a href="#梯度爆炸和梯度消失">梯度爆炸和梯度消失</a></li>
+        <li><a href="#知识蒸馏">知识蒸馏</a></li>
+        <li><a href="#k-means">K-means</a></li>
+        <li><a href="#聚类">聚类</a></li>
+        <li><a href="#pca">PCA</a></li>
+        <li><a href="#dropout">Dropout</a></li>
+        <li><a href="#相似度">相似度</a></li>
+        <li><a href="#交叉熵散度">交叉熵、散度</a></li>
+        <li><a href="#trade-off取舍">Trade-off（取舍）</a></li>
+        <li><a href="#集成学习">集成学习</a></li>
+        <li><a href="#开课吧算法面试题">开课吧算法面试题</a></li>
+        <li><a href="#面试题库">面试题库</a></li>
+        <li><a href="#牛客算法工程师面试题库">牛客算法工程师面试题库</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-1">资料</a></li>
+    <li><a href="#知识点-1"><strong>知识点</strong></a></li>
+    <li><a href="#问题-1"><strong>问题</strong></a></li>
+    <li><a href="#开课吧算法面试-pdf-题目">开课吧算法面试 pdf 题目</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-2">资料</a></li>
+    <li><a href="#知识点-2"><strong>知识点</strong></a></li>
+    <li><a href="#问题-2"><strong>问题</strong></a>
+      <ul>
+        <li><a href="#网络">网络</a></li>
+      </ul>
+    </li>
+    <li><a href="#开课吧算法面试-pdf-题目-1">开课吧算法面试 pdf 题目</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-3">资料</a></li>
+    <li><a href="#知识点-3"><strong>知识点</strong></a></li>
+    <li><a href="#问题-3"><strong>问题</strong></a></li>
+    <li><a href="#开课吧算法面试-pdf-题目-2">开课吧算法面试 pdf 题目</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-4">资料</a></li>
+    <li><a href="#知识点-4"><strong>知识点</strong></a></li>
+    <li><a href="#问题-4"><strong>问题</strong></a></li>
+    <li><a href="#开课吧算法面试-pdf-题目-3">开课吧算法面试 pdf 题目</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-5">资料</a></li>
+    <li><a href="#知识点-5"><strong>知识点</strong></a></li>
+    <li><a href="#问题-5"><strong>问题</strong></a></li>
+    <li><a href="#开课吧算法面试-pdf-题目-4">开课吧算法面试 pdf 题目</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#资料-6">资料</a></li>
+    <li><a href="#知识点-6"><strong>知识点</strong></a></li>
+    <li><a href="#问题-6"><strong>问题</strong></a></li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

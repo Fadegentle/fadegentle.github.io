@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我的面经 · 项目 本人面经之 项目 分栏，后续补充。
+注意总结自己的心得体会。
+https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D
+DataFountain 疫情情绪识别 项目简介：
+项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2503，参赛队伍 2049。
+项目成绩：
+经多日角逐，第一名 0.746；本队因条件（硬件）有限，最终得分 0.735，位 30-60 名。
+项目过程：
+开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；
+换模型和使用五折交叉检验提升 0.04 左右，数据预处理删去重复ID提升 0.01 左右，调参提升 0.004 左右；
+看队伍提交，LSTM、textCNN；
+换模型 0.69、五折交叉、模型融合、对抗训练，效果不明显，最后目光放回数据，A榜 0.73530，B榜 0.73525，但排名反而提前。
+初始版本 导入相关的库
+载入数据（多模态情感分析；标签分布不平衡，-1，1 较少；样本分布）
+作图分析数据（看文本、图片、视频长度；多模态，但是只用文本，因为其他影响不大）
+抛弃图片数据（url，60%有图片）
+抛弃视频数据（url，25%有视频）
+预训练（bert、embedding 填充长度统一；定义文本数据处理，编码从0开始，数据结果&#43;1）
+将数据变成 embedding、transformer =&amp;gt; array
+标签类别转换
+BERT 模型（三个输入，导入 bert，返回三个）
+最后一层 transformer 向量 pooling 将结果 12 层 transformer 包 训练：五折交叉验证（稳定性提高；结果提高）
+测试（有两种：平均概率相加；每折取出投票）
+生成提交（结果 -1，返回 [-1, 0, 1]）
+改良版本 数据同上 采用 修改模型 bert 修改，加入 LSTM、GRU 等作为 Encoder bert 论文图，倒 4 层连起来（contact）效果最好 未采用（试过但效果一般） 修改损失函数（Focal loss 平衡正负样本本身的比例不均） bert 输出 transformer 向量 可接 LSTM encoding 对抗训练 冠军方案 优势： 通用性 —&amp;gt; 扩展，不止疫情 可落地 —&amp;gt; 前景好 推 广 —&amp;gt; 合作 分析数据特点： 口语化 表情符 —&amp;gt; 乱码 配图随意 仅针对疫情 数据扩充和数据增广，回译方法无效（质量差） 多模态融合（图片数据无用，故此方法无效） focal loss —&amp;gt; 结果下降（故未采用） 后训练（post train，结合领域数据，微调 bert base）： MLN（Masked Language Model，[MASK] 代替词，看预测是否正确） NSP（Next Sentence Prediction，拼接看是否来自同一句） 对抗训练（adversarial training，NLP 中正则化提高泛化能力） F1 值适应优化（准确度最高的模型）以及多折模型融合（5-7 折效果好，再高不明显，得不偿失） 模型集成：词向量模型（bert 基于 wiki，对口语化微博一般） 以下效果都不好 1DCNN（1D，一维） nCCNN（nC，多核） douGRU（Double Gated Recurrent Unit，双向门控循环单元） RNN（Recurrent Neural Network，循环神经网络） Attention RNN（Recursive Neural Network，递归神经网络） 用 catboost 做 stacking 以上训练结果稳定性良好（离线 40 mins，实测 0.'><title></title>
+
+<link rel='canonical' href='https://fadegentle.github.io/interview/2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E9%A1%B9%E7%9B%AE/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content=''>
+<meta property='og:description' content='我的面经 · 项目 本人面经之 项目 分栏，后续补充。
+注意总结自己的心得体会。
+https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D
+DataFountain 疫情情绪识别 项目简介：
+项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2503，参赛队伍 2049。
+项目成绩：
+经多日角逐，第一名 0.746；本队因条件（硬件）有限，最终得分 0.735，位 30-60 名。
+项目过程：
+开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；
+换模型和使用五折交叉检验提升 0.04 左右，数据预处理删去重复ID提升 0.01 左右，调参提升 0.004 左右；
+看队伍提交，LSTM、textCNN；
+换模型 0.69、五折交叉、模型融合、对抗训练，效果不明显，最后目光放回数据，A榜 0.73530，B榜 0.73525，但排名反而提前。
+初始版本 导入相关的库
+载入数据（多模态情感分析；标签分布不平衡，-1，1 较少；样本分布）
+作图分析数据（看文本、图片、视频长度；多模态，但是只用文本，因为其他影响不大）
+抛弃图片数据（url，60%有图片）
+抛弃视频数据（url，25%有视频）
+预训练（bert、embedding 填充长度统一；定义文本数据处理，编码从0开始，数据结果&#43;1）
+将数据变成 embedding、transformer =&amp;gt; array
+标签类别转换
+BERT 模型（三个输入，导入 bert，返回三个）
+最后一层 transformer 向量 pooling 将结果 12 层 transformer 包 训练：五折交叉验证（稳定性提高；结果提高）
+测试（有两种：平均概率相加；每折取出投票）
+生成提交（结果 -1，返回 [-1, 0, 1]）
+改良版本 数据同上 采用 修改模型 bert 修改，加入 LSTM、GRU 等作为 Encoder bert 论文图，倒 4 层连起来（contact）效果最好 未采用（试过但效果一般） 修改损失函数（Focal loss 平衡正负样本本身的比例不均） bert 输出 transformer 向量 可接 LSTM encoding 对抗训练 冠军方案 优势： 通用性 —&amp;gt; 扩展，不止疫情 可落地 —&amp;gt; 前景好 推 广 —&amp;gt; 合作 分析数据特点： 口语化 表情符 —&amp;gt; 乱码 配图随意 仅针对疫情 数据扩充和数据增广，回译方法无效（质量差） 多模态融合（图片数据无用，故此方法无效） focal loss —&amp;gt; 结果下降（故未采用） 后训练（post train，结合领域数据，微调 bert base）： MLN（Masked Language Model，[MASK] 代替词，看预测是否正确） NSP（Next Sentence Prediction，拼接看是否来自同一句） 对抗训练（adversarial training，NLP 中正则化提高泛化能力） F1 值适应优化（准确度最高的模型）以及多折模型融合（5-7 折效果好，再高不明显，得不偿失） 模型集成：词向量模型（bert 基于 wiki，对口语化微博一般） 以下效果都不好 1DCNN（1D，一维） nCCNN（nC，多核） douGRU（Double Gated Recurrent Unit，双向门控循环单元） RNN（Recurrent Neural Network，循环神经网络） Attention RNN（Recursive Neural Network，递归神经网络） 用 catboost 做 stacking 以上训练结果稳定性良好（离线 40 mins，实测 0.'>
+<meta property='og:url' content='https://fadegentle.github.io/interview/2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E9%A1%B9%E7%9B%AE/'>
+<meta property='og:site_name' content='FuDongcheng&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Interview' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="我的面经 · 项目 本人面经之 项目 分栏，后续补充。
+注意总结自己的心得体会。
+https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D
+DataFountain 疫情情绪识别 项目简介：
+项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2503，参赛队伍 2049。
+项目成绩：
+经多日角逐，第一名 0.746；本队因条件（硬件）有限，最终得分 0.735，位 30-60 名。
+项目过程：
+开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；
+换模型和使用五折交叉检验提升 0.04 左右，数据预处理删去重复ID提升 0.01 左右，调参提升 0.004 左右；
+看队伍提交，LSTM、textCNN；
+换模型 0.69、五折交叉、模型融合、对抗训练，效果不明显，最后目光放回数据，A榜 0.73530，B榜 0.73525，但排名反而提前。
+初始版本 导入相关的库
+载入数据（多模态情感分析；标签分布不平衡，-1，1 较少；样本分布）
+作图分析数据（看文本、图片、视频长度；多模态，但是只用文本，因为其他影响不大）
+抛弃图片数据（url，60%有图片）
+抛弃视频数据（url，25%有视频）
+预训练（bert、embedding 填充长度统一；定义文本数据处理，编码从0开始，数据结果&#43;1）
+将数据变成 embedding、transformer =&amp;gt; array
+标签类别转换
+BERT 模型（三个输入，导入 bert，返回三个）
+最后一层 transformer 向量 pooling 将结果 12 层 transformer 包 训练：五折交叉验证（稳定性提高；结果提高）
+测试（有两种：平均概率相加；每折取出投票）
+生成提交（结果 -1，返回 [-1, 0, 1]）
+改良版本 数据同上 采用 修改模型 bert 修改，加入 LSTM、GRU 等作为 Encoder bert 论文图，倒 4 层连起来（contact）效果最好 未采用（试过但效果一般） 修改损失函数（Focal loss 平衡正负样本本身的比例不均） bert 输出 transformer 向量 可接 LSTM encoding 对抗训练 冠军方案 优势： 通用性 —&amp;gt; 扩展，不止疫情 可落地 —&amp;gt; 前景好 推 广 —&amp;gt; 合作 分析数据特点： 口语化 表情符 —&amp;gt; 乱码 配图随意 仅针对疫情 数据扩充和数据增广，回译方法无效（质量差） 多模态融合（图片数据无用，故此方法无效） focal loss —&amp;gt; 结果下降（故未采用） 后训练（post train，结合领域数据，微调 bert base）： MLN（Masked Language Model，[MASK] 代替词，看预测是否正确） NSP（Next Sentence Prediction，拼接看是否来自同一句） 对抗训练（adversarial training，NLP 中正则化提高泛化能力） F1 值适应优化（准确度最高的模型）以及多折模型融合（5-7 折效果好，再高不明显，得不偿失） 模型集成：词向量模型（bert 基于 wiki，对口语化微博一般） 以下效果都不好 1DCNN（1D，一维） nCCNN（nC，多核） douGRU（Double Gated Recurrent Unit，双向门控循环单元） RNN（Recurrent Neural Network，循环神经网络） Attention RNN（Recursive Neural Network，递归神经网络） 用 catboost 做 stacking 以上训练结果稳定性良好（离线 40 mins，实测 0.">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>Back</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/interview/2-%E6%88%91%E7%9A%84%E9%9D%A2%E7%BB%8F_%E9%A1%B9%E7%9B%AE/"></a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="我的面经--项目">我的面经 · 项目</h1>
+<p>本人面经之 <strong>项目</strong> 分栏，后续补充。</p>
+<p>注意总结自己的心得体会。</p>
+<p><a class="link" href="https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D"  target="_blank" rel="noopener"
+    >https://time.geekbang.org/column/article/87636?code=FUJw-W0GO2XL%2F%2F4ypAWQkyPqACP3Y4MD5pc-ZFO7Oy0%3D</a></p>
+<h1 id="datafountain-疫情情绪识别">DataFountain 疫情情绪识别</h1>
+<ul>
+<li>
+<p><strong>项目简介：</strong></p>
+<p>项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2503，参赛队伍 2049。</p>
+</li>
+<li>
+<p><strong>项目成绩：</strong></p>
+<p>经多日角逐，第一名 0.746；本队因条件（硬件）有限，最终得分 0.735，位 30-60 名。</p>
+</li>
+<li>
+<p><strong>项目过程：</strong></p>
+<p>开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；</p>
+<p>换模型和使用五折交叉检验提升 0.04 左右，数据预处理删去重复ID提升 0.01 左右，调参提升 0.004 左右；</p>
+<p>看队伍提交，LSTM、textCNN；</p>
+<p>换模型 0.69、五折交叉、模型融合、对抗训练，效果不明显，最后目光放回数据，A榜 0.73530，B榜 0.73525，但排名反而提前。</p>
+</li>
+</ul>
+<h2 id="初始版本"><strong>初始版本</strong></h2>
+<ul>
+<li>
+<p>导入相关的库</p>
+</li>
+<li>
+<p>载入数据（多模态情感分析；标签分布不平衡，-1，1 较少；样本分布）</p>
+</li>
+<li>
+<p>作图分析数据（看文本、图片、视频长度；多模态，但是只用文本，因为其他影响不大）</p>
+</li>
+<li>
+<p>抛弃图片数据（url，60%有图片）</p>
+</li>
+<li>
+<p>抛弃视频数据（url，25%有视频）</p>
+</li>
+<li>
+<p>预训练（bert、embedding 填充长度统一；定义文本数据处理，编码从0开始，数据结果+1）</p>
+</li>
+<li>
+<p>将数据变成 embedding、transformer =&gt; array</p>
+</li>
+<li>
+<p>标签类别转换</p>
+</li>
+<li>
+<p>BERT 模型（三个输入，导入 bert，返回三个）</p>
+<ul>
+<li>最后一层 transformer 向量</li>
+<li>pooling 将结果</li>
+<li>12 层 transformer 包</li>
+</ul>
+</li>
+<li>
+<p>训练：五折交叉验证（稳定性提高；结果提高）</p>
+</li>
+<li>
+<p>测试（有两种：平均概率相加；每折取出投票）</p>
+</li>
+<li>
+<p>生成提交（结果 -1，返回 [-1, 0, 1]）</p>
+</li>
+</ul>
+<h2 id="改良版本"><strong>改良版本</strong></h2>
+<ul>
+<li>数据同上</li>
+<li>采用
+<ul>
+<li>修改模型
+<ul>
+<li>bert 修改，加入 LSTM、GRU 等作为 Encoder</li>
+<li>bert 论文图，倒 4 层连起来（contact）效果最好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>未采用（试过但效果一般）
+<ul>
+<li>修改损失函数（Focal loss <strong>平衡正负样本本身的比例不均</strong>）
+<ul>
+<li>bert 输出 transformer 向量</li>
+<li>可接 LSTM encoding</li>
+</ul>
+</li>
+<li>对抗训练</li>
+</ul>
+</li>
+</ul>
+<h2 id="冠军方案"><strong>冠军方案</strong></h2>
+<ul>
+<li>优势：
+<ul>
+<li>通用性 —&gt; 扩展，不止疫情</li>
+<li>可落地 —&gt; 前景好</li>
+<li>推    广 —&gt; 合作</li>
+</ul>
+</li>
+<li>分析数据特点：
+<ul>
+<li>口语化</li>
+<li>表情符 —&gt; 乱码</li>
+<li>配图随意</li>
+<li>仅针对疫情</li>
+</ul>
+</li>
+<li>数据扩充和数据增广，回译方法无效（质量差）</li>
+<li>多模态融合（图片数据无用，故此方法无效）</li>
+<li>focal loss —&gt; 结果下降（故未采用）</li>
+<li>后训练（post train，结合领域数据，微调 bert base）：
+<ul>
+<li>MLN（Masked Language Model，[MASK] 代替词，看预测是否正确）</li>
+<li>NSP（Next Sentence Prediction，拼接看是否来自同一句）</li>
+</ul>
+</li>
+<li>对抗训练（adversarial training，NLP 中正则化提高泛化能力）</li>
+<li>F1 值适应优化（准确度最高的模型）以及多折模型融合（5-7 折效果好，再高不明显，得不偿失）</li>
+<li>模型集成：词向量模型（bert 基于 wiki，对口语化微博一般）
+<ul>
+<li>以下效果都不好
+<ul>
+<li>1DCNN（1D，一维）</li>
+<li>nCCNN（nC，多核）</li>
+<li>douGRU（Double Gated Recurrent Unit，双向门控循环单元）</li>
+<li>RNN（Recurrent Neural Network，循环神经网络）</li>
+<li>Attention</li>
+<li>RNN（Recursive Neural Network，递归神经网络）</li>
+</ul>
+</li>
+<li>用 catboost 做 stacking</li>
+</ul>
+</li>
+<li>以上训练结果稳定性良好（离线 40 mins，实测 0.1 s，实用性强）</li>
+</ul>
+<h2 id="知识点"><strong>知识点</strong></h2>
+<ul>
+<li>
+<p>项目说辞</p>
+<ul>
+<li>数据分析</li>
+<li>模型选择</li>
+<li>思考过程</li>
+<li>团队讨论</li>
+<li>最终结果</li>
+<li>改进方向</li>
+</ul>
+</li>
+<li>
+<p>代码流程（PPT）</p>
+<ul>
+<li>预训练相关问题（bert的选取、知识蒸馏等）</li>
+<li>数据预处理（jieba、去重、embedding、token等）</li>
+<li>Bert（concat、原理、论文）</li>
+<li>继承模型类</li>
+<li>调参</li>
+<li>loss（为什么修改？）</li>
+<li>测试（平均 / 投票）</li>
+<li>F1</li>
+</ul>
+</li>
+<li>
+<p>使用库</p>
+<ul>
+<li>pandas</li>
+<li>numpy</li>
+<li>sklearn（StratifiedKFold）</li>
+<li>tqdm</li>
+<li>tensorflow（tf、K、to_categorical）</li>
+<li>transformers</li>
+<li>jieba</li>
+</ul>
+</li>
+<li>
+<p>方案尝试</p>
+<ul>
+<li>交叉验证</li>
+<li>模型融合</li>
+<li>对抗训练</li>
+<li>LSTM</li>
+<li>TextCNN</li>
+</ul>
+</li>
+<li>
+<p>相关知识点：</p>
+<ul>
+<li>Pytorch</li>
+<li>Matplotlib</li>
+<li>bert、transformers、attention 论文</li>
+<li>冠军方案</li>
+</ul>
+</li>
+</ul>
+<h2 id="相关问题"><strong>相关问题</strong></h2>
+<ul>
+<li>
+<p>文本情感分类问题</p>
+<ul>
+<li>机器学习方法（TF-IDF、机器学习分类算法）</li>
+<li>深度学习方法（TextCNN、TextRNN 预训练模型）</li>
+</ul>
+</li>
+<li>
+<p>预训练模型有哪些？（bert、albert、xnet、robert）</p>
+<ul>
+<li>
+<p>bert 相关问题：</p>
+<ul>
+<li>
+<p>bert input embedding = Token embedding（标注序列）+ Segment（段序列）+ Position（位置序列）</p>
+</li>
+<li>
+<p>bert 论文</p>
+</li>
+<li>
+<p>bert 源码</p>
+</li>
+</ul>
+</li>
+<li>
+<p>对 transformers 的了解程度（transformers 有多个预训练模型，封装了 bert）</p>
+</li>
+<li>
+<p>对 bert 等预训练模型的理解</p>
+</li>
+</ul>
+</li>
+<li>
+<p>项目相关问题</p>
+<ul>
+<li>遇到了什么难点？怎么处理的？如何优化？</li>
+<li>BERT 和 Word2Vec + TextRNN 比较？</li>
+<li>BERT 在 pre train 时和 Word2vec 异同？损失函数？</li>
+<li>BERT 中 Token 是分词的吗？</li>
+<li>BERT 如何得到词意，句意？</li>
+<li>BERT 为什么有 3 个嵌入层？如何实现？</li>
+</ul>
+</li>
+</ul>
+<h1 id="ai-昆虫识别">AI 昆虫识别</h1>
+<p>**项目简介：**昆虫识别，欸，就是玩儿~</p>
+<h2 id="亚军方案"><strong>亚军方案</strong></h2>
+<p><a class="link" href="https://aistudio.baidu.com/aistudio/projectdetail/289616?channelType=0&amp;channel=0"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/projectdetail/289616?channelType=0&channel=0</a></p>
+<h2 id="其他方案">其他方案</h2>
+<p><a class="link" href="https://aistudio.baidu.com/aistudio/projectdetail/266424?channelType=0&amp;channel=0"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/projectdetail/266424?channelType=0&channel=0</a></p>
+<p>ppyolo，paddlepaddle的yolo修改配置文件即可</p>
+<h2 id="知识点-1"><strong>知识点</strong></h2>
+<p>图像增广（MixUp（好比两个图透明重叠）、旋转等）</p>
+<p>Yolo3（Detector，目标检测器）</p>
+<p>ResNet50-vd-dcn（BackBone，骨干网络。残差神经网络，恒等模块神经网络越深效果反而不好，所以假设残差传递，结果真的更好。<a class="link" href="https://github.com/PaddlePaddle/models/issues/2674"  target="_blank" rel="noopener"
+    >vd 是什么？</a>。<a class="link" href="https://zhuanlan.zhihu.com/p/43364598"  target="_blank" rel="noopener"
+    >Deep &amp; Cross Network(<em>DCN</em>)，深层交叉网络</a>）</p>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/32702350"  target="_blank" rel="noopener"
+    >SENet</a> 分类网络（Squeeze-and-Excitation Networks，全局平均池化-&gt;（1*1*C）全连接-&gt;sigmoid归一化，增强重要特征，削弱非重要特征，让提取的特征指向性更强。SENet 在卷积时会对每个特征图计算一个权重，以突出对结果增益高的特征图，从而进一步增强分类效果。）</p>
+<p>IOU（真实框和检测框的重叠占比，即交/并）</p>
+<p>mAP（mean Average Precision，各类别正确率的加权平均）</p>
+<p><a class="link" href="https://blog.csdn.net/diligent_321/article/details/85859462"  target="_blank" rel="noopener"
+    >NMS 和 Soft-NMS</a>（NMS，哪个框分高就留下那个，重叠的多的就视为冗余；NMS 稠密对象可能会导致某些框不返回，所以引入 Soft-NMS，举例子，NMS把重叠太多的 0.8 框可能性给设为 0， SNMS 则可能为 0.4）</p>
+<h2 id="相关问题-1"><strong>相关问题</strong></h2>
+<h1 id="豆瓣-top-500-电影">豆瓣 Top 500 电影</h1>
+<ul>
+<li>
+<p><strong>项目简介</strong>：使用爬虫获取豆瓣网上 Top 500 的电影数据，并进行数据分析，如哪个电影类别最受欢迎、哪个年份</p>
+<p>爆款电影最多等。欸，就是玩儿</p>
+</li>
+</ul>
+<h2 id="初始版本-1"><strong>初始版本</strong></h2>
+<p><a class="link" href="https://aistudio.baidu.com/aistudio/projectdetail/1240625"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/projectdetail/1240625</a></p>
+<p>《深度学习导论与应用实践》</p>
+<h2 id="改良版本-1"><strong>改良版本</strong></h2>
+<h2 id="知识点-2"><strong>知识点</strong></h2>
+<p><strong>from</strong> bs4 <strong>import</strong> BeautifulSoup 获取标签</p>
+<p>xlrd、xlwt操作excel</p>
+<h2 id="相关问题-2"><strong>相关问题</strong></h2>
+<h1 id="机器阅读理解">机器阅读理解</h1>
+<ul>
+<li><strong>项目简介</strong>：类似百度时第一条的抽取回答 <a class="link" href="https://aistudio.baidu.com/aistudio/competition/detail/66"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/competition/detail/66</a></li>
+</ul>
+<h2 id="初始版本-2"><strong>初始版本</strong></h2>
+<p><a class="link" href="https://aistudio.baidu.com/aistudio/projectdetail/1564384"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/projectdetail/1564384</a></p>
+<h2 id="改良版本-2"><strong>改良版本</strong></h2>
+<ul>
+<li>
+<p><strong>预训练模型</strong>改良：https://github.com/PaddlePaddle/PaddleNLP/blob/develop/docs/transformers.md</p>
+</li>
+<li>
+<p><strong>对抗训练</strong>：通过在词向量中添加干扰词向量来生成干扰样本。重新训练模型，以增强模型的鲁棒性。</p>
+</li>
+<li>
+<p><strong>知识蒸馏，模型融合</strong>等</p>
+</li>
+</ul>
+<h2 id="知识点-3"><strong>知识点</strong></h2>
+<p><code>SQuAD</code> 格式：https://www.cnblogs.com/xuehuiping/p/12262700.html</p>
+<p>ERNIE</p>
+<p><code>start_loss</code>和<code>end_loss</code>和<code>cls_loss</code>，<code>mrc_loss = (start_loss + end_loss) / 2</code> =&gt; <code>loss = (mrc_loss + cls_loss) /2</code></p>
+<p><figure 
+	>
+	<a href="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517172947311.png" >
+		<img src="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517172947311.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210517172947311">
+	</a>
+	
+	<figcaption>image-20210517172947311</figcaption>
+	
+</figure></p>
+<h2 id="相关问题-3"><strong>相关问题</strong></h2>
+<h1 id="多技能对话任务">多技能对话任务</h1>
+<ul>
+<li><strong>项目简介</strong>：本次用于评测的千言－多技能对话数据集涵盖了多个对话场景：包括画像对话、知识对话、推荐对话等。我们旨在衡量开放域对话模型在各个不同技能上的效果和模型通用性。 <a class="link" href="https://aistudio.baidu.com/aistudio/competition/detail/67"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/competition/detail/67</a></li>
+</ul>
+<h2 id="初始版本-3"><strong>初始版本</strong></h2>
+<p><a class="link" href="https://aistudio.baidu.com/aistudio/projectdetail/1640180"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/projectdetail/1640180</a></p>
+<h2 id="改良版本-3"><strong>改良版本</strong></h2>
+<h2 id="知识点-4"><strong>知识点</strong></h2>
+<p><figure 
+	>
+	<a href="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517134328536.png" >
+		<img src="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517134328536.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210517134328536">
+	</a>
+	
+	<figcaption>image-20210517134328536</figcaption>
+	
+</figure></p>
+<p><figure 
+	>
+	<a href="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517134401177.png" >
+		<img src="/C:%5cUsers%5c11046%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210517134401177.png"
+			
+			
+			
+			loading="lazy"
+			alt="image-20210517134401177">
+	</a>
+	
+	<figcaption>image-20210517134401177</figcaption>
+	
+</figure></p>
+<p>用脚本将数据转化成id化</p>
+<p>动态学习率</p>
+<p>交叉熵</p>
+<h2 id="相关问题-4"><strong>相关问题</strong></h2>
+<h1 id="多形态信息抽取任务">多形态信息抽取任务</h1>
+<ul>
+<li><strong>项目简介</strong>：让机器从自然语言文本中抽取实体、关系、事件等多形态知识，旨在使机器具备从海量非结构化文本信息中自动抽取结构化知识的能力。 <a class="link" href="https://aistudio.baidu.com/aistudio/competition/detail/65"  target="_blank" rel="noopener"
+    >https://aistudio.baidu.com/aistudio/competition/detail/65</a></li>
+</ul>
+<h2 id="初始版本-4"><strong>初始版本</strong></h2>
+<ul>
+<li>关系抽取 Relation Extraction：https://aistudio.baidu.com/aistudio/projectdetail/1639963</li>
+<li>事件抽取 Event Extraction：https://aistudio.baidu.com/aistudio/projectdetail/1639964</li>
+</ul>
+<h2 id="改良版本-4"><strong>改良版本</strong></h2>
+<ul>
+<li>改用更大的预训练模型</li>
+<li>模型集成</li>
+<li>GRU+CRF（事件抽取）</li>
+</ul>
+<h2 id="知识点-5"><strong>知识点</strong></h2>
+<p>数据集：百度自建的三个大规模中文信息抽取数据集——DuIE2.0、DuEE1.0和DuEE-fin</p>
+<p>SPO：主体（subject），关系（predicate），客体（object），pipeline 管道抽取，先抽再识别哪个是SPO；end2end 联合抽取，输入、然后直接输出SPO三元组 <a class="link" href="https://blog.csdn.net/qq_35268841/article/details/107063066"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/qq_35268841/article/details/107063066</a></p>
+<p>BIO（ES）：Begin，In，Out，End，Single</p>
+<p>优化器：Adam</p>
+<p>损失函数：均方误差（关系抽取）；交叉熵（事件抽取）</p>
+<p>评估：P/R/F1</p>
+<h2 id="相关问题-5"><strong>相关问题</strong></h2>
+<h1 id="baidu-舆论识别">Baidu 舆论识别</h1>
+<ul>
+<li>
+<p><strong>项目简介：</strong></p>
+<p>项目为 DataFountain 疫情期间的微博网民情绪识别，用官方给的数据集训练分析微博当时的舆论走向积极与否，参赛人数2049，参赛队伍 2503。</p>
+</li>
+<li>
+<p><strong>项目成绩：</strong></p>
+<p>经多日角逐，第一名 0.746；本队因条件有限，最终得分 0.735，位 30-60 名。</p>
+</li>
+<li>
+<p><strong>项目过程：</strong></p>
+<p>开始单干，后面有几个朋友请求组队，同意组队后每日开会，商讨策略；</p>
+</li>
+</ul>
+<h2 id="初始版本-5"><strong>初始版本</strong></h2>
+<h2 id="改良版本-5"><strong>改良版本</strong></h2>
+<h2 id="冠军方案-1"><strong>冠军方案</strong></h2>
+<h2 id="知识点-6"><strong>知识点</strong></h2>
+<h2 id="相关问题-6"><strong>相关问题</strong></h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 FuDongcheng&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">Table of contents</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#初始版本"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本"><strong>改良版本</strong></a></li>
+    <li><a href="#冠军方案"><strong>冠军方案</strong></a></li>
+    <li><a href="#知识点"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#亚军方案"><strong>亚军方案</strong></a></li>
+    <li><a href="#其他方案">其他方案</a></li>
+    <li><a href="#知识点-1"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-1"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#初始版本-1"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本-1"><strong>改良版本</strong></a></li>
+    <li><a href="#知识点-2"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-2"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#初始版本-2"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本-2"><strong>改良版本</strong></a></li>
+    <li><a href="#知识点-3"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-3"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#初始版本-3"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本-3"><strong>改良版本</strong></a></li>
+    <li><a href="#知识点-4"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-4"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#初始版本-4"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本-4"><strong>改良版本</strong></a></li>
+    <li><a href="#知识点-5"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-5"><strong>相关问题</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#初始版本-5"><strong>初始版本</strong></a></li>
+    <li><a href="#改良版本-5"><strong>改良版本</strong></a></li>
+    <li><a href="#冠军方案-1"><strong>冠军方案</strong></a></li>
+    <li><a href="#知识点-6"><strong>知识点</strong></a></li>
+    <li><a href="#相关问题-6"><strong>相关问题</strong></a></li>
+  </ul>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
